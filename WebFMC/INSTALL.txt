@@ -1,0 +1,7 @@
+1. Copy WebFMC folder into your <X-Plane>/Resources/plugins/.
+2. If using WebFMC Pro:
+  - put webfmc-lic.txt into the <X-Plane>/Resources/plugins/WebFMC folder.
+  - keep a copy of your license somewhere safe in case of future updates / reinstall!
+3. Start X-Plane.
+4. Connect with a web browser running on a device in same local network to http://<your IP address of X-Plane>:9090
+5. Please check out the attached PDF manual for detailed instructions, hints and troubleshooting guide.
