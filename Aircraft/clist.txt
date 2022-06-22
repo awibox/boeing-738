@@ -747,25 +747,25 @@ sw_item_c:\white\AIRSPEED BUG\grey\, VREF + 50% HW (APPROACH)|SET:laminar/B738/a
 sw_item_c:\white\TAXI LIGHT\grey\, ON|SET:(laminar/B738/toggle_switch/taxi_light_brightness_pos:>0)&&(sim/operation/failures/rel_lites_taxi:0)
 sw_itemvoid::::: LANDING CHECKLIST COMPLETED (READ OUT) ::::
 ################################################################################################################
-
+sw_continue
+################################################################################################################
 
 
 ################################################################################################################
 sw_checklist:LANDING PROCEDURE (2/2):LANDING PROCEDURE (2/2)
 ################################################################################################################
-sw_show:(sim/flightmodel/position/y_agl:260:250)&&(laminar/B738/autopilot/cmd_a_status:1)&&(sim/flightmodel/position/y_agl:>20)&&(sim/flightmodel/position/indicated_airspeed:>80)&&(sim/time/is_in_replay:0)||(sim/flightmodel/position/y_agl:260:250)&&(laminar/B738/autopilot/cmd_b_status:1)&&(sim/flightmodel/position/y_agl:>20)&&(sim/flightmodel/position/indicated_airspeed:>80)&&(sim/time/is_in_replay:0)||(sim/flightmodel/position/y_agl:260:250)&&(laminar/B738/autopilot/autothrottle_arm_pos:1)&&(sim/flightmodel/position/y_agl:>20)&&(sim/flightmodel/position/indicated_airspeed:>80)&&(sim/time/is_in_replay:0)
 sw_itemvoid::::::::::::::: MCP PANEL :::::::::::::::
 sw_item_c:\white\A/P DISENGAGE\grey\, YOKE BUTTON|SET:(laminar/B738/capt/yoke_ap_disengage:1)||(laminar/B738/fo/yoke_ap_disengage:1)||(laminar/B738/autopilot/cmd_a_status:0)&&(laminar/B738/autopilot/cmd_b_status:0)
 sw_item_c:\white\AUTOTHROTTLE\grey\, OFF|SET:laminar/B738/autopilot/autothrottle_arm_pos:0
 sw_itemvoid_c:\grey\30 FEET, CHECK - CLOSE - HOLD
 ################################################################################################################
-
+sw_continue
+################################################################################################################
 
 
 ################################################################################################################
 sw_checklist:AFTER LANDING PROCEDURE:AFTER LANDING PROCEDURE
 ################################################################################################################
-sw_show:(sim/flightmodel/position/y_agl:<1)&&(sim/flightmodel/position/indicated_airspeed:120:100)&&(laminar/b738/fmodpack/flightphase_landed:1)&&(sim/time/is_in_replay:0)
 sw_itemvoid::::::::::::::: CONSOLE & MFD PANEL :::::::
 sw_item_c:\white\REVERSE LEVERS\grey\, IDLE <60 KNOTS|DONE:(laminar/B738/flt_ctrls/reverse_lever12:>0)&&(laminar/B738/flt_ctrls/reverse_lever12:<0.2)&&(laminar/b738/fmodpack/real_groundspeed:<60)
 sw_item_c:\white\REVERSE LEVERS\grey\, CLOSED <30 KNOTS|DONE:(laminar/B738/flt_ctrls/reverse_lever12:0)&&(laminar/b738/fmodpack/real_groundspeed:<30)
@@ -846,7 +846,8 @@ sw_itemvoid_c:\grey\.............. TURN INTO GATE
 sw_item_c:\white\LEFT & RIGHT RUNWAY TURNOFF LIGHTS\grey\, OFF|SET:(sim/cockpit2/switches/generic_lights_switch[2]:0)&&(sim/cockpit2/switches/generic_lights_switch[3]:0)
 sw_item_c:\white\TAXI LIGHT\grey\, OFF|SET:laminar/B738/toggle_switch/taxi_light_brightness_pos:0
 ################################################################################################################
-
+sw_continue
+################################################################################################################
 
 
 ################################################################################################################
@@ -988,8 +989,9 @@ sw_item_c:\white\FWD ENTRY DOOR\grey\, CLOSED|SET:737u/doors/L1:0
 sw_itemvoid:
 sw_itemvoid::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 sw_itemvoid::::::::::::::::::::: END OF CHECKLISTS ::::::::::::::::::::
-##########################################################################################################
-
+################################################################################################################
+sw_continue
+################################################################################################################
 
 
 ##########################################################################################################
