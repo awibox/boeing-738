@@ -1,0 +1,435 @@
+Terrain radar plugin changelog:
+
+1.26
+- Added support for Boeing 747 Sparky (requires the latest version of the plane from Github)
+    - Independent terrain display on left and right NDs
+    - Supported ND on lower EICAS display
+    - Terrain brightness adjusts by INBD CRT inner knob
+    - TERR OVRD button - disables terrain prediction and terrain display
+- Fixed some datarefs issues
+- Fixed detection of Embraer ERJ family by X-Crafts
+
+1.25
+- Added support for Airbus A300-600ST Beluga by iniSimulations
+- Added support for Airbus A310 by iniSimulations
+- Fixed minor issues
+
+1.24.1
+- Boeing 737-800 by Zibo:
+    - Fixed incorrect version comparison
+
+1.24
+- Added settings window
+- Added minimum empty weight property
+- Boeing 737-800 by Zibo:
+    - Added support for LevelUp modification
+    - Plugin now detects the aircraft version using the "version.txt" file and tries to support older aircraft versions if possible
+    - Version 3.45.3 and above:
+        INBD DU BRT (inner) adjusts terrain brightness
+        INBD DU BRT (outer) adjusts VSD brightness
+    - Version 3.45.5 and above:
+        disabled PTV, because Zibo draws its own PTV
+    - Fixed TERR INHIBIT mode
+- Boeing 787 by Magknight
+    - Supported two versions:
+        - Old version (AE 1.4, 1.5, VMAX787)
+        - New version (AE 1.6.7+, need support from aircraft)
+- Boeing 787 by Magknight (1.6.7+):
+    - Added support for TERR button
+    - Terrain works only if IRS is aligned
+    - Fixed brightness
+
+1.23
+- Added support for Airbus A300-600 PAX by iniSimulations
+- Fixed black terrain background on some aircrafts
+- Fixed some small issues
+
+1.22
+- Added Airbus A300-600 by iniSimulations
+- Fixed small issues
+
+1.21
+- Fixed bug in terrain collision prediction function
+- Bombardier CL300 XP10:
+    - WXR/TERR button sequence: WXR -> TERR -> WXR -> none
+    - Added PULL UP text message on PFD
+    - Terrain turns on during terrain alert
+- Bombardier CL300 XP11:
+    - Added PULL UP message to PFD
+- Falcon 7X XP10:
+    - WXR/TERR button sequence: WXR -> TERR -> WXR -> none
+- Boeing 737-800 by Zibo
+    - Removed some text on ND
+- On terrain collision alert, terrain is switching ON and WXR is switching OFF:
+    - Boeing C17 by Virtavia
+    - Bombardier Dash8 Q400 by FlyJSim
+    - Boeing 787 by Magknight
+    - Embraer E175/195 by X-Crafts
+    - Antonov An-148 by JARDesign
+    - Boeing 787 by VMAX
+    - MD-82 default
+    - Dornier Do 228 HD SERIES by Carenado
+    - Embraer EMB110 Bandeirante by Dreamfoil
+    - Gulfstream G-IV SP by Ghansen
+    - Boeing 747 default
+    - Boeing 737 default
+- Terrain collision prediction is disabled for aircrafts with empty weight < 1800 kg
+- Water is displayed only on MSL level
+- Fixed terrain elevation text on negative altitude values
+- Some improvements in terrain display processor
+
+1.20
+- Added support for some Carenado aircrafts with Avidyne display:
+    - Beechcraft King Air B200 HD Series by Carenado
+    - Beechcraft King Air C90 HD Series by Carenado
+    - Beechcraft B1900 HD Series by Carenado
+- Changed Boing 737 terrain pattern
+- Added Airbus A350/A380 terrain pattern
+
+1.19.1
+- Boeing 737-800 by Zibo
+    - Changed TERR text position and size
+    - Small fixes
+- Tu-204 by Pilot-Sanya
+    - Fixed TERR text
+    - Added black background to terrain elevation text
+- Added Embraer terrain pattern
+- Changed Airbus terrain pattern
+- Fixed some minor issues
+
+1.19
+- Window Mode for X-Plane 11
+    - Added new window mode (you can move it to another monitor)
+    - Added ability to resize window
+- Window Mode for X-Plane 10
+    - Added the ability to resize window using mouse wheel
+- Window Mode
+    - Added "size reset" clickable region in the left bottom corner
+- Boeing 737-800 by Zibo
+    - Removed TERR messages: TERR POS, TERR FAIL, TERR INHIBIT
+    - Fixed bug with MCP altitude on VSD
+- Added support for Boeing 717-200 by drwindows (the plane is in development)
+- Radar range is now saves to the settings file
+- Added radar range buttons to radar window
+- Removed radar range menu items
+- EGPWS option is now saves in window mode
+- Fixed false positive terrain alert immediately after takeoff
+- Fixed some minor bugs
+
+1.18.1
+- Changed logic of the terrain collision prediction function.
+  Improved false positive predictions suppression.
+
+1.18
+- Added Pilatus PC-12 HD Series by Carenado (XP11, unofficial)
+    - Use LB5 button on Avidyne to change terrain modes
+- Added Piaggio P.180 Avanti II by Airfighter (XP11, v2.3+)
+    - PFD and MFD - TERR/WX button
+- Added Boeing 747-400 by YesAviation (XP11)
+- Boeing 737-800 by Zibo:
+    - Fixed bug with VSD waypoints
+    - Removed distance rings feature, because now this is native feature of the aircraft
+    - Terrain aural messages
+- Added terrain aural messages (experimental feature, check notes for information)
+- Added datarefs:
+    - Terrain collision prediction (experimental feature)
+    - Plugin version
+
+1.17.1
+- Now the plugin looks for both files: "*.acf.terrain_radar_descr" and "*.acf.terrain_radar_descr.txt"
+    - Note: file without ".txt" has priority if both files are present
+- Fixed potential problem during aircraft initialization
+
+1.17.0
+- Added "aircraft description patch" feature for aircrafts with changed "aircraft description"
+    - See special section in this file
+- Settings are saved immediately after any changes
+- Fixed a small inaccuracy of the Vertical Flight Path Vector on VSD
+- Boeing 737-800 by Zibo
+    - Fixed bug with VSD waypoints
+- Embraer ERJ-series by X-Crafts
+    - Added support for new short aircraft descriptions (Ground Handling plugin issue)
+
+1.16.0
+- Added Embraer ERJ135/140/145/145XR by X-Crafts (XP11)
+    - Terrain Radar
+    - VSD (inculded FMC waypoints)
+    - Terrain alert text messages on ND
+    - Terrain turns on during terrain alert
+- Added Boeing 787 by VMAX (XP11 v1.03)
+    - WXR/TERR button sequence: WXR -> TERR -> WXR -> none
+- Embraer E175/195 by X-Crafts
+    - added FMC waypoints on VSD (both Tekton and default FMC)
+    - Terrain alert text messages on ND
+    - Terrain turns on during terrain alert
+- Boeing C17 by Virtavia
+    - WXR/TERR button sequence: WXR -> TERR -> WXR -> none
+    - Terrain alert text message on PFD and HUD
+    - Terrain turns on during terrain alert
+- Boeing 787 by Magknight
+    - WXR/TERR button sequence: WXR -> TERR -> WXR -> none
+    - Terrain alert text message on ND
+    - Terrain turns on during terrain alert
+- Boeing 777-200LR/200F/200ER/300ER by FlightFactor
+    - WXR/TERR button sequence: WXR -> TERR -> WXR -> none
+    - Terrain alert text message on ND
+    - Terrain turns on during terrain alert
+
+1.15.0
+- Fixed radar ranges for X-Plane 11.30+ (XPD-9359)
+- Window mode - FMC waypoints on VSD (without altitude restrictions)
+- Added Embraer EMB110 Bandeirante by Dreamfoil (XP11, v3.2+, not sure about other versions)
+- New terrain alert prediction algorithm
+- Added "Airbus style" center-to-side sweep style
+- Added horizontal scan style (for Embraer and Gulfstream)
+- Added new terrain pattern for small displays (C17 and other)
+- Bombardier CL300 XP11:
+    - Switched to center-to-side sweep style (as in real aircraft)
+    - Terrain inhibits by "TAWS WARN TERRAIN" button
+    - Added TERRAIN TEST mode (SYSTEM TESTS switch -> TAWS mode)
+- X-Crafts E175/E195 switched to horizontal scan style (as in real aircraft)
+- Gulfstream IV switched to horizontal scan style (as in real aircraft)
+- Some fixes for FJS Dash-8 Q-400
+- Added arc mask for some aircrafts
+- GPWS TEST text is displayed only once after aircraft reloading
+- Fixed some minor bugs
+
+1.14.2
+- Fixed detection of Ultimate Project 737-900 BETA 1810
+
+1.14.1
+- McDonnell Douglas MD-80 by Rotate - fixed bug "TR in WX mode"
+
+1.14.0
+- Added McDonnell Douglas MD-88 by Rotate (XP10, XP11, need aircraft version 1.42+)
+    - New MAP mode in radar. Thanks to Rotate team for cooperation!
+- Bell-429 by Timber61 - added TOPO + TERR modes on central display (need Bell-429 v1.5)
+- Fixed initialization of the datarefs search module
+- Boeing 777 by FlightFactor - TERR text is shifted upwards so that it does not overlap the TCAS messages
+- Fixed Position Trend Fector calculation. Now PTV works in XP10 (window mode)
+
+1.13.0
+- Independed terrain radar and VSD for Capt and FO:
+    - Zibo Boeing 737-800
+    - Boeing 737-900ER Ultimate
+    - EADT 737-700 and 737-800
+- Added Magknight Boeing B787-900 (XP11, v.1.04)
+- Added JARDesign An-148 (XP10, XP11, v1.1)
+- Added MD-82 default (XP11)
+- Removed JAR-330 (because the plane has its own terrain radar)
+- Bell-429 - fixed bug "terrain in COMP mode"
+- Boeing 747 default - fixed Range Arcs option
+- Zibo Boeing 737-800 and Boeing 737-900ER Ultimate:
+    - TERR INHIBIT switch inhibits terrain radar
+    - added TERR FAIL, TERR INHIBIT and TERR POS messages on ND
+    - GPWS system test
+- Radar range coincides with the EFIS range:
+    These planes do not work correctly if you start them after default 738:
+    - JARDesign An-148 (1, 4, 10 ... 160 nm)
+    - Carenado DO228 100 HD SERIES (1, 4, 10 ... 160 nm)
+    - Falcon 7X by After (1, 4, 10 ... 160 nm)
+    - XCrafts E175/E195 (1, 2, 5, 10 ... 80 nm)
+    - Bell-429 by Timber61 (4, 10, 20, 40, 80 nm)
+    These planes work correctly only if you start them after default 738:
+    - MD-82 default (10, 20, 40 ... 640 nm)
+    - FJS Dash-8 Q-400 (10, 20, 40 ... 640 nm)
+    - Boeing 787-900 by Magknight (10, 20, 40 ... 640 nm)
+- New A320 pattern, I think it's much closer to the original
+- Help, they took my passport, force me to add more and more new planes and don't give me a beer. I'm sure that no one will read this )
+
+1.12.1
+- Fixed detection of Ultimate Project 737-900 BETA 1807
+
+1.12.0
+- Zibo 737-800 (required v3.27):
+    - VSD waypoints with altitude restrictions
+    - VSD Vertical Speed Vector
+    - VSD BARO/RADIO minimums pointer and line
+    - VSD selected runway white line
+    - VSD glidepath line and decision gates
+- 737-800 default:
+    - VSD BARO minimums pointer and line
+    - VSD Vertical Speed Vector
+- X-Crafts Embraer E175/E195:
+    - VSD BARO minimums pointer and line
+    - VSD Vertical Speed Vector
+- Window mode:
+    - VSD BARO minimums pointer and line (may not work in some planes)
+    - VSD Vertical Speed Vector (may not work in some planes)
+- Tu-2XX by Pilot-Sanya - support for v0.5 (left ND only)
+- New terrain dot pattern
+
+1.11.0
+- Added EADT Boeing x737-700 (required v5.4)
+- Added EADT Boeing x737-800 (required v5.4)
+- Zibo 737-800 (required v3.26+):
+    - Rewrite logic for v3.26
+    - TERR button turns the radar ON or OFF
+    - CTR switch in MAP mode: MAP EXP -> MAP CTR -> MAP CTR + VSD
+    - Shifted terrain in CTR VSD mode
+    - Position Trend Vector - 1, 2, 3 segments. Each segment represents 30 seconds
+    - Removed range arcs option
+    - Draw distance fixes
+- Added Boeing 737-900ER Ultimate (Zibo v3.26 required!)
+- Added Carenado DO228 100 HD SERIES
+- Added Falcon 7X by After
+- FF-777 - terrain in map CTR mode
+- New terrain pattern for low resolution NDs
+- Window mode - added 3nm range
+- Fixed bug "plugin doesn't work after plugins restart"
+
+1.10.1
+- Zibo 738 - fixed bug "FO random display on windshield"
+
+1.10.0
+- Added support for X-Crafts Embraer E175/E195 v2.3+ (XP11)
+- Added support for FlyJSim Dash8-Q400
+- FF-777 - fixed bug "terrain displayed in CnD"
+- FF-777 - terrain hides when WXR is displayed on ND
+- FF-777 - fixed bug "1nm terrain radar range on startup"
+- JAR-330 - terrain hides when WXR is displayed on ND
+- Gulfstream IV - fixed bug "terrain displayed in CnD"
+- C17 - fixed bug "terrain displayed in CnD"
+- CL300 XP10 - fixed radar range
+
+1.9.1
+- Fixed: Bell-429 central display
+
+1.9.0
+- Performance optimization
+- New radar sweep visualization
+- Terrain and elevation information for Cirrus SR20 (some glitches in popup MFD mode, sorry for this)
+- Peaks mode small fixes
+- Fixed: window size bug on startup
+
+1.8.0
+- New terrain visualization
+- Elevation indication:
+    - Boeing 737-800 by Zibo
+    - Boeing 737-800 default
+    - Boeing 747-400 default
+    - FlightFactor Boeing 777
+    - JARDesign Airbus A330
+    - Virtavia C-17 Globemaster III
+    - Gulfstream G-IV SP by ghansen
+    - Bombardier Challenger 300 by ddenn
+    - Overlay window
+- Added support for Bombardier Challenger 300 XP11 patch (thanx ddenn for cooperation)
+- Experimental: if EGPWS alerts enabled, radar shows a possible point of collision with the ground
+- Fixed some bugs
+
+1.7.1
+- Fixed Bombardier Challenger 300 in XP10
+- Added TERRAIN buttons support for Gulfstream G-IV SP
+
+1.7.0
+- Added integration with Cirrus SR20 G1000 by vFlyteAir (TerrainRadar Plugin Compatibility Patch needed!)
+- Added integration with Bombardier Challenger 300 by ddenn (later, ddenn will make a new version, in which all 4 displays could be independent)
+- Fixed work with Zibo mod. Now the plugin works only with the left display. This will be fixed in future releases.
+    - TERR button turns the radar on or off
+    - CTR switch in VOR or APP modes: expanded -> center -> expanded -> center with VSD (later Zibo will add MAP CTR mode!)
+- Added small window size option (plugin reload is needed!)
+- (only for experiment!) Added integration with Tu-204/214 by Pilot-Sanya (radar and range switched in menu or by hotkey)
+
+1.6.0
+- Added peaks mode option
+- Changed terrain display logic for helicopters with Honeywell MK XXII
+- Added integration with Gulfstream G-IV SP V11 by ghansen (radar ON/OFF in radar menu or by hot key)
+
+1.5.0
+- Added support for Bell 429 Global Ranger by timber61 (XP10, XP11) - all displays, TERR button supported. You need livery with nose radar!
+- Added simple GPWS TEST for Boeing 737-800 Zibo (TERR TEST/TERR FAIL annunciations not displayed now)
+- Added "range arcs option" in menu and settings file
+
+1.4.0
+- Added the ability to save settings. For each aircraft settings are saved separately
+- Added integration with FlightFactor Boeing 777-200LR/200F/200ER/300ER (radar ON/OFF in radar menu or by hot key)
+- Added integration with JARDesign Airbus A330 (radar ON/OFF in radar menu or by hot key). Note: radar is turned off if the aircraft's standard radar is displayed!
+- Added integration with Virtavia C-17 Globemaster III (radar ON/OFF in radar menu or by hot key)
+- Fixed small bugs
+
+1.3.1
+- Fixed bug with B737-800 default
+- Fixed conditions for displaying range arcs in 738 Zibo and default
+- Position trend vector disabled in PLN mode
+
+1.3.0
+- Solved "huge fps drop" problem in havy rain conditions
+- The curvature of the Earth is taken into account
+- Added "regular tiles" color scheme. In the future, tiles will be loaded from image files
+- The boundary between green and yellow (500 or 250 feet) depends on whether the gear is down (if gear is retractable). If gear is not retractable, the boundary is 500 feet.
+- Fixed bug with Terrain elevation annunciator. It looks like this thing is not needed by anyone, no one has noticed that thousands of feet are displayed instead of hundreds (if anyone reads this, let me know)
+- Fixed GS and TAS indication in window mode
+- B738 - range arcs displayed in WXR, TFC or TERR modes
+- With the water display option turned on, water is only displayed at sea level (as it's done in Honeywell)
+- Water color changed to cyan
+- Experimental EGPWS TERRAIN alerts (OFF by default, we do not recommend using this near a runway)
+
+1.2.0
+- Position Trend Vector in B738 and window (experimental, only for XP11)
+- During turns, enroute swath edge leading the turn opens in the direction of the turn
+- Terrain elevation is calculated depending on the enroute swath
+- VSD displays terrain profile line depending on the enroute swath
+- Added commands for window mode:
+    - Show/hide radar window: "terrain_radar/radar_show"
+    - Radar range increase: "terrain_radar/radar_range_increase"
+    - Radar range decrease: "terrain_radar/radar_range_decrease"
+- Wind arrow displayed relative to aircraft heading (window mode)
+
+1.1.0
+- Vertical Situation Display
+    - 737-800 integration
+      Available in VOR CTR and APP CTR modes (because this model doesn't have MAP CTR mode)
+      TERR button - turn ON/OFF (this is wrong, will be fixed)
+    - Overlay window integration
+        - Altitude reference scale on displays is drawn relative to pilots barometric pressure input
+    - Selected altitude bug - relative to pilots barometric pressure input too
+        - Vertical flight path vector
+        - Terrain profile line - represents the highest terrain within the enroute swath (true terrain situation is displayed, independent of the barometer settings)
+- Terrain mode annunciation - terrain display enabled (TERR)
+- Terrain elevation - displayed in hundreds of feet showing highest and lowest displayed terrain. Colors correspond to terrain display
+- Enrout Swath - indicates area of the map that is shown on the VSD (now these are only static lines, this will be fixed in the future)
+- Added ranged arcs to 737/747 (only in TERR mode) and overlay radar
+- Display GS and TAS in overlay window
+- Wind direction/speed and wind arrow in overlay window
+- Now you can move radar window
+
+1.0.0
+- Added new mode: overlay radar window for all aircrafts (window hide by default)
+- Plugin moved to "X-Plane/resources/plugins" folder
+- Added integration with "Bell 429 by timber61" (central display)
+- Water disabled by default
+- Some fixes
+
+0.8.0
+- Radar paused when simulator is on pause
+- Tested with Boeing 737-800 default
+- Boeing 747-400 default
+- Small pixels in grain mode
+- One build for all aircrafts and XP versions
+
+0.7.0
+- Radial scanning
+- Higher radar resolution
+- Show water added in the menu
+
+0.6.1b
+- MacOS build
+- Radar settings in plugins menu
+
+0.5.1
+- Linux
+
+0.5.0
+- Draw terrain on FO navigation display
+- Minor visual fixes
+
+0.4.0
+- A new way to paint terrain, more realistic.
+- Slightly larger radar resolution.
+- The size of the radar corresponds to the real 738
+
+0.3.0
+- TERR button now works (only captain's side).
+- 160/320/640 scales.
+- New way to display the terrain.
