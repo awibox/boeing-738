@@ -1,0 +1,17 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x0458PID:0x1004
+Display: Flight2000 F-23 Joystick
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 3: joy_use_thro
+
+
+

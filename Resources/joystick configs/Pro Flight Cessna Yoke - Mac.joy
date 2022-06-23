@@ -1,0 +1,109 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+Name: Pro Flight Cessna Yoke
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_thro
+Axis 3: joy_use_prop
+Axis 4: joy_use_mixt
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/weapons/fire_any_armed
+Button 1: sim/autopilot/servos_off_any
+Button 2: sim/flight_controls/flaps_up
+Button 3: sim/flight_controls/flaps_down
+Button 4: sim/flight_controls/landing_gear_down
+Button 5: sim/flight_controls/landing_gear_up
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+
+View: Front
+-----------------------------------------------------------------------
+Image: cessna_yoke.png
+
+Axis Group (Yoke): 0 1
+Axis 0 (x): 907 461
+Axis 1 (y): 0 0 
+
+Hat Switch 0 (Hat Switch): 381 83
+
+Button 2 (↑): 353 134
+Button 3 (↓): 323 186
+Button 12 (→): 394 172
+Button 11 (←): 286 125
+
+Button 5 (↑): 1426 71
+Button 4 (↓): 1469 140
+Button 7 (→): 1533 152
+Button 6 (←): 1432 191
+
+View: Back
+-----------------------------------------------------------------------
+Image: cessna_yoke_back.png
+
+Button 0 (Red): 1474 235
+Button 1 (): 193 346
+
+Button 22 (): 269 213
+Button 23 (): 234 199
+Button 24 (): 195 195
+
+View: Throttle Quadrant
+-----------------------------------------------------------------------
+Image: Saitek-Pro-Flight-Throttle.png
+
+Axis 2 (Throttle; y): 278 75
+Axis 3 (Prop; y): 360 63
+Axis 4 (Mixture; y): 442 43
+
+# ?
+#Button 20 (Hold Reverse - Throttle): 442 463
+#Button 21 (Hold Reverse - Prop): 504 439
+#Button 22 (Hold Reverse - Mixture): 566 411
+
+#Button 14 (T1): 442 515
+#Button 15 (T2): 442 565
+#Button 16 (T3): 506 489
+#Button 17 (T4): 506 541
+#Button 18 (T5): 568 467
+#Button 19 (T6): 568 517

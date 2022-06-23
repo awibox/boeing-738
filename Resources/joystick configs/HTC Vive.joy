@@ -1,0 +1,31 @@
+I
+1100 version
+JOY
+
+OS: Windows
+OS: Mac
+OS: Linux
+
+ID: vr/HTC/lighthouse
+Display: HTC Vive Controller
+
+Assignments:
+------------------------------------------------------------------------
+Reserved Configuration Group 1 (Touchpad): Axis 0 1 Button 2
+Axis 0: joy_use_vr_touchpad_x
+Axis 0 Type: Touch
+Axis 0 Calibration: auto
+Axis 1: joy_use_vr_touchpad_y
+Axis 1 Type: Touch
+Axis 1 Calibration: auto
+# Touchpad
+Button 2: sim/VR/reserved/touchpad
+
+Axis 2: joy_use_vr_trigger
+Axis 2 Type: Linear
+Axis 2 Calibration: auto
+
+# Menu
+Button 0: sim/VR/reserved/menu
+# Trigger
+Button 3: sim/VR/reserved/select

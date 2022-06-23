@@ -1,0 +1,28 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x046dPID:0xc287
+Display: Flight System G940
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_thro
+Axis 4: joy_use_rudd_tr
+Axis 5: joy_use_lbrk
+Axis 6: joy_use_rbrk
+Axis 7: joy_use_hdng
+Axis 8: joy_use_elev_tr
+Axis 9: joy_use_ailn_tr
+
+Button 0: sim/operation/contact_atc
+Button 2: sim/view/tower
+Button 4: sim/view/circle
+Button 6: sim/view/3d_cockpit_cmnd_look
+Button 13: sim/flight_controls/landing_gear_toggle
+
+

@@ -1,0 +1,168 @@
+I
+1100 Version
+JOY
+
+
+OS: Windows
+OS: Linux
+OS: Mac
+
+Name: BEH1000 PFD  Joystick
+ID: VID:0x25bbPID:0x006b
+
+Assignments:
+Button 0: sim/none/none
+Button 1: sim/none/none
+Button 2: sim/GPS/g1000n1_com_outer_up
+Button 3: sim/GPS/g1000n1_com_outer_down
+Button 4: sim/GPS/g1000n1_com_inner_up
+Button 5: sim/GPS/g1000n1_com_inner_down
+Button 6: sim/GPS/g1000n1_range_up
+Button 7: sim/GPS/g1000n1_range_down
+Button 8: sim/GPS/g1000n1_baro_up
+Button 9: sim/GPS/g1000n1_baro_down
+Button 10: sim/GPS/g1000n1_crs_up
+Button 11: sim/GPS/g1000n1_crs_down
+Button 12: sim/GPS/g1000n1_fms_outer_up
+Button 13: sim/GPS/g1000n1_fms_outer_down
+Button 14: sim/GPS/g1000n1_fms_inner_up
+Button 15: sim/GPS/g1000n1_fms_inner_down
+Button 16: sim/none/none
+Button 17: sim/none/none
+Button 18: sim/GPS/g1000n1_nav_outer_up
+Button 19: sim/GPS/g1000n1_nav_outer_down
+Button 20: sim/GPS/g1000n1_nav_inner_up
+Button 21: sim/GPS/g1000n1_nav_inner_down
+Button 22: sim/GPS/g1000n1_alt_outer_up
+Button 23: sim/GPS/g1000n1_alt_outer_down
+Button 24: sim/GPS/g1000n1_alt_inner_up
+Button 25: sim/GPS/g1000n1_alt_inner_down
+Button 26: sim/GPS/g1000n1_hdg_down
+Button 27: sim/GPS/g1000n1_hdg_up
+Button 28: sim/GPS/g1000n1_nvol
+Button 29: sim/GPS/g1000n1_nav12
+Button 30: sim/GPS/g1000n1_hdg_sync
+Button 32: sim/GPS/g1000n1_cvol
+Button 33: sim/GPS/g1000n1_com12
+Button 34: sim/GPS/g1000n1_crs_sync
+Button 35: sim/GPS/g1000n1_pan_push
+Button 36: sim/GPS/g1000n1_cursor
+Button 37: sim/GPS/g1000n1_nav_ff
+Button 38: sim/GPS/g1000n1_ap
+Button 39: sim/GPS/g1000n1_hdg
+Button 40: sim/GPS/g1000n1_nav
+Button 41: sim/GPS/g1000n1_apr
+Button 42: sim/GPS/g1000n1_vs
+Button 43: sim/GPS/g1000n1_flc
+Button 44: sim/GPS/g1000n1_fd
+Button 45: sim/GPS/g1000n1_alt
+Button 46: sim/GPS/g1000n1_vnv
+Button 47: sim/GPS/g1000n1_bc
+Button 48: sim/GPS/g1000n1_nose_up
+Button 49: sim/GPS/g1000n1_nose_down
+Button 50: sim/GPS/g1000n1_clr
+Button 51: sim/GPS/g1000n1_fpl
+Button 52: sim/GPS/g1000n1_direct
+Button 53: sim/GPS/g1000n1_ent
+Button 54: sim/GPS/g1000n1_proc
+Button 55: sim/GPS/g1000n1_menu
+Button 56: sim/GPS/g1000n1_com_ff
+Button 57: sim/GPS/g1000n1_softkey8
+Button 58: sim/GPS/g1000n1_softkey9
+Button 59: sim/GPS/g1000n1_softkey10
+Button 60: sim/GPS/g1000n1_softkey11
+Button 61: sim/GPS/g1000n1_softkey12
+Button 62: sim/GPS/g1000n1_softkey1
+Button 63: sim/GPS/g1000n1_softkey2
+Button 64: sim/GPS/g1000n1_softkey3
+Button 65: sim/GPS/g1000n1_softkey4
+Button 66: sim/GPS/g1000n1_softkey5
+Button 67: sim/GPS/g1000n1_softkey6
+Button 68: sim/GPS/g1000n1_softkey7
+
+# FORMAT FOR HAT SWITCHES:
+Hat Switch 0 Direction 1: sim/GPS/g1000n1_pan_up
+Hat Switch 0 Direction 2: sim/GPS/g1000n1_pan_up_right
+Hat Switch 0 Direction 3: sim/GPS/g1000n1_pan_right
+Hat Switch 0 Direction 4: sim/GPS/g1000n1_pan_down_right
+Hat Switch 0 Direction 5: sim/GPS/g1000n1_pan_down
+Hat Switch 0 Direction 6: sim/GPS/g1000n1_pan_down_left
+Hat Switch 0 Direction 7: sim/GPS/g1000n1_pan_left
+Hat Switch 0 Direction 8: sim/GPS/g1000n1_pan_up_left
+
+
+View: Face
+-----------------------------------------------------------------------
+Image: BEH1000_PFD.png
+
+Hat Switch 0 (Hat 0): 1217 490
+
+Button 0:  1183 61
+Button 1:  1253 61
+Button 2:  1260 194
+Button 3:  1175 194
+Button 4:  1234 194
+Button 5:  1202 194
+Button 6:  1170 490
+Button 7:  1265 490
+Button 8:  1260 345
+Button 9:  1175 345
+Button 10: 1234 345
+Button 11: 1202 345
+Button 12: 1265 780
+Button 13: 1170 780
+Button 14: 1234 780
+Button 15: 1202 780
+Button 16:   50  61
+Button 17:  120  61
+Button 18:  135 194
+Button 19:   35 194
+Button 20:  100 194
+Button 21:   65 194
+Button 22:  135 780
+Button 23:   35 780
+Button 24:  100 780
+Button 25:   65 780
+Button 26:   65 345
+Button 27:  100 345
+Button 28:   85  61
+Button 29:   85 165
+Button 30:   85 315
+Button 31:  82 750
+Button 32: 1217  61
+Button 33: 1217 165
+Button 34: 1217 315
+Button 35: 1217 455
+Button 36: 1217 750
+Button 37:  115 111
+Button 38:   50 440
+Button 39:   50 490
+Button 40:   50 540
+Button 41:   50 590
+Button 42:   50 640
+Button 43:   50 690
+Button 44:  115 440
+Button 45:  115 490
+Button 46:  115 540
+Button 47:  115 590
+Button 48:  115 640
+Button 49:  115 690
+Button 50: 1186 690
+Button 51: 1186 640
+Button 52: 1186 590
+Button 53: 1252 690
+Button 54: 1252 640
+Button 55: 1252 590 
+Button 56: 1185 111
+Button 57:  764 800
+Button 58:  840 800
+Button 59:  916 800
+Button 60:  992 800
+Button 61: 1068 800
+Button 62:  232 800
+Button 63:  308 800
+Button 64:  384 800
+Button 65:  460 800
+Button 66:  536 800
+Button 67:  612 800
+Button 68:  688 800 

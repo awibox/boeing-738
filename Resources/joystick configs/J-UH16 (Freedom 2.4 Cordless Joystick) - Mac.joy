@@ -1,0 +1,24 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x046dPID:0xc213
+Display: Freedom 2.4 Cordless Joystick
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_hdng
+Axis 3: joy_use_thro
+
+Button 2: sim/flight_controls/pitch_trim_up
+Button 3: sim/flight_controls/pitch_trim_down
+Button 5: sim/view/3d_cockpit_cmnd_look
+Button 6: sim/flight_controls/flaps_up
+Button 7: sim/flight_controls/flaps_down
+Button 0: sim/flight_controls/brakes_toggle_regular
+
+

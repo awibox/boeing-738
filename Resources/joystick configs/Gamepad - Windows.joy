@@ -1,0 +1,18 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x1a34PID:0x0802
+Display: Gamepad
+
+Assignments:
+--------------------------------------------------------------
+Axis 1: joy_use_ptch
+Axis 2: joy_use_roll
+Axis 3: joy_use_hdng
+
+Button 1: sim/flight_controls/brakes_toggle_regular
+
+

@@ -1,0 +1,22 @@
+I
+1100 version
+JOY
+
+OS: Linux
+
+ID: VID:0x068ePID:0x00f3
+Display: Fighterstick
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_thro
+
+Button 12: sim/general/down
+Button 13: sim/general/rot_right
+Button 14: sim/general/up
+Button 15: sim/general/rot_left
+Button 1: sim/flight_controls/landing_gear_toggle
+
+

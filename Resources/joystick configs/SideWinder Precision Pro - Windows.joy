@@ -1,0 +1,20 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x045ePID:0x0008
+Display: SideWinder Precision Pro
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_hdng
+Axis 3: joy_use_thro
+
+Button 2: sim/flight_controls/pitch_trim_down
+Button 3: sim/flight_controls/pitch_trim_up
+
+

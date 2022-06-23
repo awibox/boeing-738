@@ -1,0 +1,20 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x06a3PID:0x040b
+Display: P990 Dual Analog Pad
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_elev_tr
+Axis 3: joy_use_hdng
+
+Button 8: sim/flight_controls/pitch_trim_up
+Button 9: sim/flight_controls/pitch_trim_down
+
+

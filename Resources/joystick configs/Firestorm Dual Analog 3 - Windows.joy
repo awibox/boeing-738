@@ -1,0 +1,23 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x044fPID:0xb315
+Display: Firestorm Dual Analog 3
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_hdng
+
+Button 4: sim/flight_controls/flaps_up
+Button 5: sim/flight_controls/flaps_down
+Button 0: sim/engines/throttle_down
+Button 1: sim/flight_controls/pitch_trim_down
+Button 2: sim/flight_controls/pitch_trim_up
+Button 3: sim/engines/throttle_up
+
+

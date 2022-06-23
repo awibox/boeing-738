@@ -1,0 +1,115 @@
+I
+1100 version
+JOY
+
+OS: Linux
+
+Name: Logitech Logitech Extreme 3D
+Name: Logitech Extreme 3D
+Display: Logitech Extreme 3D
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_hdng
+Axis 3: joy_use_thro
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/weapons/fire_any_armed
+Button 1: sim/flight_controls/brakes_toggle_regular
+Button 2: sim/flight_controls/flaps_down
+Button 3: sim/flight_controls/landing_gear_down
+Button 4: sim/flight_controls/flaps_up
+Button 5: sim/flight_controls/landing_gear_up
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 0: sim/general/hat_switch_up
+Hat Switch 0 Direction 1: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 2: sim/general/hat_switch_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down
+Hat Switch 0 Direction 5: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 6: sim/general/hat_switch_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_up_left
+
+
+View: Top
+-----------------------------------------------------------------------
+Image: Logitech_Extreme_3D_top.png
+
+Axis Group (Stick): 0 1
+Axis 0 (x): 763 818
+Axis 1 (y): 0 0
+
+Axis 2 (Twist): 881 960
+Axis 3 (Lever): 628 1348
+
+Hat Switch 0 (Hat Switch): 763 406
+
+#Stick
+Button 1 (2): 604 581
+Button 4 (5): 659 419
+Button 2 (3): 710 534
+Button 5 (6): 875 413
+Button 3 (4): 830 530
+
+#base
+Button 6 (7): 439 557
+Button 7 (8): 498 632
+Button 8 (9): 322 760
+Button 9 (10): 418 779
+Button 10 (11): 322 982
+Button 11 (12): 420 959
+
+View: Side
+-----------------------------------------------------------------------
+Image: Logitech_extreme_3d_side.png
+
+Axis Group (Stick): 0 1 
+Axis 0 (x): 688 459
+Axis 1 (y): 0 0
+
+Axis 2 (Twist; y): 772 678
+
+Axis 3 (Lever): 1174 1052
+
+Hat Switch 0 (Hat Switch): 488 94
+
+#stick
+Button 0 (Trigger): 370 310
+Button 1 (2): 566 297
+
+#base
+Button 6 (7): 445 1063
+Button 7 (8): 519 1005
+Button 8 (9): 630 1071
+Button 9 (10): 656 1010
+Button 10 (11): 855 1069
+Button 11 (12): 827 1013

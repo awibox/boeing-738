@@ -1,0 +1,19 @@
+I
+1100 Version
+JOY
+
+OS: Mac
+
+ID: VID:0xbeefPID:0x046d
+Display: SpaceNavigator
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_none
+Axis 1: joy_use_none
+Axis 2: joy_use_none
+Axis 3: joy_use_none
+Axis 4: joy_use_none
+Axis 5: joy_use_none
+Axis 6: joy_use_none
+

@@ -1,0 +1,111 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+Name: Saitek Pro Flight Yoke
+
+
+View: Front of Yoke
+-----------------------------------------------------------------------
+Image: Saitek-Pro-Flight.png
+
+Axis Group (Yoke): 0 1
+Axis 0 (y): 511 534
+Axis 1 (x): 511 534
+
+Hat Switch 0 (Hat Switch): 98 32
+
+Button 2 (A1): 56 73
+Button 3 (A2): 41 104
+
+Button 4 (B1): 898 43
+Button 5 (B2): 913 78
+
+Button 6 (C1): 937 101
+Button 7 (C2): 979 98
+
+Button 1 (D): 956 40
+
+Button 11 (Function): 407 428
+Button 12 (Start/Stop): 512 429
+Button 13 (Reset): 612 430
+
+View: Throttle Quadrant
+-----------------------------------------------------------------------
+Image: Saitek-Pro-Flight-Throttle.png
+
+Axis 4 (Throttle; y): 278 75
+Axis 3 (Prop; y): 360 63
+Axis 2 (Mixture; y): 442 43
+Button 20 (Hold Reverse - Throttle): 442 463
+Button 21 (Hold Reverse - Prop): 504 439
+Button 22 (Hold Reverse - Mixture): 566 411
+
+Button 14 (T1): 442 515
+Button 15 (T2): 442 565
+Button 16 (T3): 506 489
+Button 17 (T4): 506 541
+Button 18 (T5): 568 467
+Button 19 (T6): 568 517
+
+
+View: Back of Yoke
+-----------------------------------------------------------------------
+Image: Saitek-Pro-Flight-Rear.png
+
+Button 0 (Left Index Finger Btn): 548 58
+
+Button Group (Mode Dial): 8 9 10
+Button 8 (Left): 190 191
+Button 9 (Center): 190 191
+Button 10 (Right): 215 191
+
+
+Assignments:
+------------------------------------------------------------------------
+Axis 1: joy_use_roll
+Axis 0: joy_use_ptch
+Axis 4: joy_use_thro
+# Throttle axis "reverse" range
+Button 20: sim/engines/thrust_reverse_hold
+Axis 3: joy_use_prop
+Axis 2: joy_use_mixt
+
+# Left side index finger button (E)
+Button 0: sim/autopilot/servos_off_any
+
+# Left side up/down switch (A1/A2)
+Button 2: sim/flight_controls/pitch_trim_down
+Button 3: sim/flight_controls/pitch_trim_up
+
+# Right side up/down switch (B1/B2)
+Button 4: sim/flight_controls/flaps_up
+Button 5: sim/flight_controls/flaps_down
+
+# Right side left/right switch (C1/C2)
+Button 6: sim/flight_controls/aileron_trim_right
+Button 7: sim/flight_controls/aileron_trim_left
+
+# Right side red button (D)
+Button 1: sim/flight_controls/landing_gear_toggle
+
+# Mode dial
+# Mode dial left
+Button 8: sim/view/glance_left
+# Mode dial center
+Button 9: momentary
+# Mode dial right
+Button 10: sim/view/glance_right
+
+# Hat switch
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+Hat Switch 0 Direction 8: sim/general/hat_switch_up_left
+

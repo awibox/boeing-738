@@ -1,0 +1,19 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x06a3PID:0x0c2d
+Display: Pro Flight Quadrant
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_mixt
+Axis 1: joy_use_prop
+Axis 2: joy_use_thro
+
+Button 0: sim/flight_controls/flaps_up
+Button 1: sim/flight_controls/flaps_down
+
+

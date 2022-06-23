@@ -1,0 +1,19 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x0483PID:0x5710
+Display: Joystick in FS Mode
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_thro
+Axis 1: joy_use_roll
+Axis 2: joy_use_ptch
+Axis 3: joy_use_hdng
+
+Button 0: sim/flight_controls/brakes_toggle_regular
+
+

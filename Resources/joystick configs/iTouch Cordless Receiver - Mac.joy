@@ -1,0 +1,20 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x046dPID:0xc211
+Display: iTouch Cordless Receiver
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_hdng
+Axis 2: joy_use_thro
+Axis 3: joy_use_roll
+Axis 4: joy_use_ptch
+
+Button 7: sim/flight_controls/pitch_trim_up
+Button 10: sim/flight_controls/pitch_trim_down
+
+
