@@ -1,2 +1,0 @@
-logMsg("FlyWithLua Debug: FlyWithLua is loading 32-bit files!")
-print("FlyWithLua is loading 32-bit files!")
