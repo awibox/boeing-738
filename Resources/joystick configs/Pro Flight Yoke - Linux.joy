@@ -1,0 +1,21 @@
+I
+1100 version
+JOY
+
+OS: Linux
+
+ID: VID:0x06a3PID:0x0bac
+Display: Pro Flight Yoke
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_thro
+Axis 3: joy_use_prop
+Axis 4: joy_use_mixt
+
+Button 2: sim/flight_controls/pitch_trim_down
+Button 3: sim/flight_controls/pitch_trim_up
+
+

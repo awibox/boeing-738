@@ -1,0 +1,161 @@
+I
+1100 Version
+JOY
+
+# NOTE:
+# If X-Plane did not come with a default configuration for your device,
+# and you would like to share *your* configuration with the world,
+# email this file to tyler+joysticks@x-plane.com and we will evaluate
+# it for inclusion with the simulator. Thanks!!
+
+# You can find a complete spec for this file format, with instructions on configuring
+# both the device views and the default configuration here:
+# http://lookup.x-plane.com/_lookup_11_/joy_file_spec.html
+
+# One or more operating systems this file applies to.
+# Windows, macOS, and Linux will index the axes differently, so a file
+# that correctly configures your joystick on one platform is *not*
+# guaranteed to work on the other.
+OS: Windows
+# Other valid options:
+# OS: Linux
+# OS: Mac
+
+# Zero or more device names (provided by the operating system, as seen in the UI)
+# that this .joy file describes.
+# (Note that you need at least one name or one ID, described below.)
+# If more than one device is named, we're saying that *any* of those devices should be configured
+# using the *same* defaults and the same image maps.
+Name: Saitek Pro Flight X-56 Rhino Throttle
+
+# Zero or more USB identifiers (vendor ID + product ID) that this .joy file describes.
+# (Note that you need at least one ID or Name, described above.)
+# If more than USB identifier is given, we'll use this .joy file to configure *any* of those devices.
+# ID:
+
+# Optional: Specify the name X-Plane should display for the device in the user interface
+# (if this is different from the name the operating system provides)
+# Display: My Device Name Override
+
+# Optional: Specify relaxed calibration rules for this device.
+# This is useful if your USB hardware reports a wider range of axis motion than
+# the device is actually capable of sending. (For instance, if you're a custom cockpit
+# builder, and your axis reports 16 bits of travel, but you only use 10 bits.)
+# This is *not* recommended if you have off-the-shelf hardware from a
+# consumer hardware company like Saitek, Logitech, Thrustmaster, CH Products, etc.
+# Calibration: Relaxed
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: hidden
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_thro2
+Axis 1: joy_use_thro1
+Axis 2: joy_use_mixt
+Axis 3: joy_use_prop
+Axis 4: joy_use_none
+Axis 5: joy_use_sbrk
+Axis 6: joy_use_none
+Axis 7: joy_use_tiller
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: hidden
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/engines/thrust_reverse_toggle
+Button 1: sim/flight_controls/speed_brakes_up_one
+Button 3: sim/GPS/g430n1_popup
+Button 4: sim/operation/contact_atc
+Button 5: sim/autopilot/heading_sync
+Button 6: sim/autopilot/heading
+Button 7: sim/autopilot/altitude_sync
+Button 8: sim/autopilot/altitude_hold
+Button 9: sim/autopilot/vertical_speed
+Button 10: sim/autopilot/wing_leveler
+Button 11: sim/autopilot/vertical_speed_up
+Button 12: sim/autopilot/vertical_speed_down
+Button 13: sim/autopilot/altitude_down
+Button 14: sim/autopilot/altitude_up
+Button 17: sim/autopilot/heading_up
+Button 18: sim/autopilot/heading_down
+Button 27: sim/flight_controls/flaps_up
+Button 28: sim/flight_controls/flaps_down
+Button 29: sim/general/zoom_in
+Button 30: sim/general/zoom_out
+Button 32: sim/flight_controls/landing_gear_toggle
+
+Button 31: hidden
+Button 33: hidden
+Button 34: hidden
+Button 35: hidden
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number>: hidden
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+
+
+
+
+
+View: Front
+
+Image: saitek x56 throttle fb.png
+
+
+
+
+Button 0 (E): 254 247
+Button 1 (F): 310 136
+Button 2 (G): 313 241
+Button 3 (I): 394 137
+Button 4 (H): 418 139
+Button 5 (SW 1): 113 325
+Button 6 (SW 2): 85 350
+Button 7 (SW 3): 146 339
+Button 8 (SW 4): 119 370
+Button 9 (SW 5): 184 362
+Button 10 (SW 6): 160 390
+Button 11 (TGL1): 287 301
+Button 12 (TGL1): 272 314
+Button 13 (TGL2): 336 319
+Button 14 (TGL2): 318 328
+Button 15 (TGL3): 332 273
+Button 16 (TGL3): 312 289
+Button 17 (TGL4): 373 287
+Button 18 (TGL4): 355 301
+Button 19 (H3 UP): 286 253
+Button 23 (H4 UP): 279 277
+Button 27 (K1 UP): 353 129
+Button 29 (SCROLL FWD): 332 115
+Button 32 (SLD): 277 211
+Axis 0 (THRTL2): 212 208
+Axis 1 (THRTL1): 162 198
+Axis 2 (RTY3): 278 353
+Axis 3 (RTY4): 233 357
+Axis 5 (RTY2): 311 229
+Axis 7 (RTY1): 310 161
+Axis Group (MINISTICK): 6 4
+Axis 6 (FB): 243 273
+Axis 4 (LR): 243 273
+

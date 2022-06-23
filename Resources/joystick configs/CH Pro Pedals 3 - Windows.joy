@@ -1,0 +1,14 @@
+I
+1100 Version
+JOY
+
+OS: Windows
+
+ID: VID:1678PID:1281
+Display: CH Pro Pedals
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_rbrk
+Axis 1: joy_use_lbrk
+Axis 2: joy_use_hdng

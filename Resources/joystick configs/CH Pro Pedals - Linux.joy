@@ -1,0 +1,17 @@
+I
+1100 version
+JOY
+
+OS: Linux
+
+ID: VID:0x068ePID:0x0501
+Display: CH Pro Pedals
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_lbrk
+Axis 1: joy_use_rbrk
+Axis 2: joy_use_hdng
+
+
+

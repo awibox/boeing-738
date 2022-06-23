@@ -1,0 +1,155 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+Name: Saitek X52 Pro Flight Control System
+Display: Saitek X52 Pro
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_unused_was_auto_roll	joy_use_unused_was_auto_ptch	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_hdng
+Axis 3: joy_use_thro
+Axis 4: joy_use_elev_tr
+Axis 5: joy_use_ailn_tr
+Axis 6: joy_use_view_zoom
+Axis 7: joy_use_view_lr
+Axis 8: joy_use_view_ud
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/weapons/fire_any_shell
+Button 1: sim/weapons/fire_air_to_air
+Button 2: sim/autopilot/servos_off_any
+Button 5: sim/operation/contact_atc
+Button 7: sim/flight_controls/landing_gear_toggle
+Button 8: sim/flight_controls/flaps_up
+Button 9: sim/flight_controls/flaps_down
+Button 10: sim/flight_controls/landing_gear_up
+Button 11: sim/flight_controls/landing_gear_down
+Button 29: sim/flight_controls/brakes_toggle_regular
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+
+View: Stick
+-----------------------------------------------------------------------
+Image: Saitek_x52pro_stick.png
+
+Axis Group (Stick): 0 1 
+Axis 0 (x): 369 412
+Axis 1 (y): 0 0
+
+Axis 2 (Twist; z): 386 519
+
+Hat Switch 0 (Hat Switch): 418 140
+
+Button 0 (Trigger first notch): 498 209
+Button 14 (Trigger fully down): 465 211
+Button 5 (Pinky Trigger): 455 393
+
+#Base
+Button 8 (T1): 186 577
+Button 9 (T2): 153 629
+Button 10 (T3): 215 588
+Button 11 (T4): 189 640
+Button 12 (T5): 245 596
+Button 13 (T6): 223 648
+
+#Stick
+
+Hat Switch Group (Top Left Hat Switch): 19 20 21 22
+Button 19: 400 50
+
+#Button 19 (↑): 400 50
+#Button 21 (↓): 398 107
+#Button 20 (→): 413 77
+#Button 22 (←): 377 79
+
+Button 1 (Fire): 449 78
+Button 2 (A): 479 72
+Button 3 (B): 466 119
+Button 4 (C): 386 131
+Button 27 (Mode): 547 58
+Button 28 (Mode): 526 49
+Button 29 (Mode): 507 62
+
+View: Throttle Back
+-----------------------------------------------------------------------
+Image: Saitek_x52pro_throttle.png
+
+Axis 3 (Throttle; y): 345 395
+Axis 6 (Slider): 538 122
+Axis 5 (Large Dial): 638 57
+Axis 4 (Small Dial): 644 209
+
+Axis Group (Mouse): 7 8
+Axis 7 (x): 543 230
+Axis 8 (y): 0 0
+
+Button 6 (D): 633 109
+Button 7 (E): 644 24
+Button 30 (i): 604 209
+
+Button 15 (Mouse Click): 490 260
+
+Button 32 (Start/Stop): 374 568
+Button 33 (Reset): 334 599
+
+Button 34 (Wheel Pg↑): 319 545
+Button 35 (Wheel Pg↓): 272 594
+
+Button 36 (Wheel ↑): 437 577
+Button 37 (Wheel ↓): 393 621
+
+View: Throttle Top
+-----------------------------------------------------------------------
+Image: Saitek_X52_pro_throttle_top.png
+
+Hat Switch Group (Finger Hat Switch): 23 24 25 26
+Button 23: 159 49
+
+#Button 23 (↑): 159 49
+#Button 24 (→): 182 57
+#Button 25 (↓): 167 78
+#Button 26 (←): 145 68
+
+Button 16 (Wheel Pg↓): 154 120
+Button 17 (Wheel Pg↑): 166 138
+
+Button 18 (Wheel Press): 148 137
+

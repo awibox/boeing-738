@@ -1,0 +1,16 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x068ePID:0x00f1
+Display: Pro Throttle
+
+Assignments:
+--------------------------------------------------------------
+Axis 2: joy_use_thro
+
+Button 13: sim/flight_controls/brakes_toggle_regular
+
+

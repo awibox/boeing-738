@@ -1,0 +1,18 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x0583PID:0x688f
+Display: QF-688uv Windstorm Pro Joystick
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_thro
+Axis 1: joy_use_hdng
+Axis 2: joy_use_ptch
+Axis 3: joy_use_roll
+
+
+

@@ -1,0 +1,106 @@
+I
+1100 version
+JOY
+
+# NOTE:
+# If X-Plane did not come with a default configuration for your device,
+# and you would like to share *your* configuration with the world,
+# email this file to tyler+joysticks@x-plane.com and we will evaluate
+# it for inclusion with the simulator. Thanks!!
+
+# One or more operating systems this file applies to.
+# Windows, macOS, and Linux will index the axes differently, so a file
+# that correctly configures your joystick on one platform is *not*
+# guaranteed to work on the other.
+OS: Linux
+# Other valid options:
+# OS: Mac
+# OS: Windows
+
+# One or more device names (as seen in the UI) that this .joy file describes
+# If more than one device is named, we're saying that *any* of those devices should be configured
+# using the *same* defaults and the same image maps.
+Name: Logitech Logitech Attack 3
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_none
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/weapons/fire_any_armed
+Button 1: sim/flight_controls/flaps_down
+Button 2: sim/flight_controls/flaps_up
+Button 3: sim/flight_controls/brakes_toggle_regular
+Button 4: sim/autopilot/servos_off_any
+Button 5: sim/flight_controls/landing_gear_toggle
+
+View: Left
+-----------------------------------------------------------------------
+Image: Logitech_Attack_3_left.png
+
+Axis Group (Stick): 1 2
+Axis 1 (y): 834 785
+Axis 2 (x): 834 785
+
+Axis 0 (Lever): 1383 1657
+
+#stick
+Button 0 (Trigger): 405 509
+Button 3 (4): 432 330
+Button 2 (3): 542 269
+Button 4 (5): 622 230
+Button 1 (2): 692 379
+
+#base
+Button 5 (6): 518 1632
+Button 6 (7): 722 1694
+Button 7 (8): 1094 1618
+Button 8 (9): 1285 1500
+
+View: Right
+-----------------------------------------------------------------------
+Image: Logitech_Attack_3_right.png
+
+Axis Group (Stick): 0 1 
+Axis 0 (x): 883 823
+Axis 1 (y): 0 0
+
+Axis 2 (Lever): 444 1678
+
+#Stick
+Button 0 (Trigger): 1280 469
+Button 3 (4): 1046 205
+Button 2 (3): 1131 236
+Button 4 (5): 1267 283
+Button 1 (2): 1015 352
+
+#base
+Button 7 (8): 514 1516
+Button 8 (9): 724 1615
+Button 9 (10): 1089 1665
+Button 10 (11): 1305 1575

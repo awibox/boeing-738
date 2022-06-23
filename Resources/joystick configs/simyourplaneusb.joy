@@ -1,0 +1,127 @@
+I
+1100 Version
+JOY
+Calibration: Relaxed
+
+
+# NOTE:
+# If X-Plane did not come with a default configuration for your device,
+# and you would like to share *your* configuration with the world,
+# email this file to tyler+joysticks@x-plane.com and we will evaluate
+# it for inclusion with the simulator. Thanks!!
+
+# You can find a complete spec for this file format, with instructions on configuring
+# both the device views and the default configuration here:
+# http://lookup.x-plane.com/_lookup_11_/joy_file_spec.html
+
+# One or more operating systems this file applies to.
+# Windows, macOS, and Linux will index the axes differently, so a file
+# that correctly configures your joystick on one platform is *not*
+# guaranteed to work on the other.
+OS: Windows
+# Other valid options:
+# OS: Linux
+# OS: Mac
+
+# Zero or more device names (provided by the operating system, as seen in the UI)
+# that this .joy file describes.
+# (Note that you need at least one name or one ID, described below.)
+# If more than one device is named, we're saying that *any* of those devices should be configured
+# using the *same* defaults and the same image maps.
+Name: Sim Your Plane (Wired)
+
+Display: Sim Your Plane (Wired)
+
+# Zero or more USB identifiers (vendor ID + product ID) that this .joy file describes.
+# (Note that you need at least one ID or Name, described above.)
+# If more than USB identifier is given, we'll use this .joy file to configure *any* of those devices.
+ID: VID:0x2886PID:0x802f
+
+View: Front
+-----------------------------------------------------------------------
+Image: simyourplane.png
+Axis 3: 200 85
+
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: hidden
+Axis 1: hidden
+Axis 2: hidden
+Axis 3: joy_use_none
+Axis 4: hidden
+Axis 5: hidden
+Axis 6: hidden
+Axis 7: hidden
+
+Button 0: hidden
+Button 1: hidden
+Button 2: hidden
+Button 3: hidden
+Button 4: hidden
+Button 5: hidden
+Button 6: hidden
+Button 7: hidden
+Button 8: hidden
+Button 9: hidden
+Button 10: hidden
+Button 11: hidden
+Button 12: hidden
+Button 13: hidden
+Button 14: hidden
+Button 15: hidden
+Button 16: hidden
+Button 17: hidden
+Button 18: hidden
+Button 19: hidden
+Button 20: hidden
+Button 21: hidden
+Button 22: hidden
+Button 23: hidden
+Button 24: hidden
+Button 25: hidden
+Button 26: hidden
+Button 27: hidden
+Button 28: hidden
+Button 29: hidden
+Button 30: hidden
+Button 31: hidden
+Button 32: hidden
+Button 33: hidden
+Button 34: hidden
+Button 35: hidden
+Button 36: hidden
+Button 37: hidden
+Button 38: hidden
+Button 39: hidden
+Button 40: hidden
+Button 41: hidden
+Button 42: hidden
+Button 43: hidden
+Button 44: hidden
+Button 45: hidden
+Button 46: hidden
+Button 47: hidden
+Button 48: hidden
+Button 49: hidden
+Button 50: hidden
+Button 51: hidden
+Button 52: hidden
+Button 53: hidden
+Button 54: hidden
+Button 55: hidden
+Button 56: hidden
+Button 57: hidden
+Button 58: hidden
+Button 59: hidden
+Button 60: hidden
+Button 61: hidden
+Button 62: hidden
+Button 63: hidden
+Button 64: hidden
+
+Hat Switch 0: hidden
+Hat Switch 1: hidden
+Hat Switch 2: hidden
+Hat Switch 3: hidden
+

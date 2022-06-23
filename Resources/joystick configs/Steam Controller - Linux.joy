@@ -1,0 +1,39 @@
+I
+1100 Version
+JOY
+
+OS: Linux
+
+ID: VID:0x28dePID:0x11fc
+ID: VID:0x28dePID:0x1102
+ID: VID:0x28dePID:0x1142
+Display: Steam Controller
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_hdng
+Axis 3: joy_use_view_lr
+Axis 4: joy_use_view_ud reverse
+Axis 5: joy_use_none
+
+Button 0: sim/flight_controls/flaps_down
+Button 1: sim/engines/throttle_down
+Button 2: sim/engines/throttle_up
+Button 3: sim/flight_controls/flaps_up
+Button 4: sim/general/zoom_out
+Button 5: sim/general/zoom_in
+Button 7: sim/operation/pause_toggle
+Button 8: hidden
+Button 9: sim/flight_controls/brakes_toggle_regular
+Button 10: sim/flight_controls/landing_gear_toggle
+
+Hat Switch 0 Direction 0: sim/general/hat_switch_up
+Hat Switch 0 Direction 1: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 2: sim/general/hat_switch_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down
+Hat Switch 0 Direction 5: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 6: sim/general/hat_switch_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_up_left

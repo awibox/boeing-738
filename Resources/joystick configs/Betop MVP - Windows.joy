@@ -1,0 +1,35 @@
+I
+1100 Version
+JOY
+
+OS: Windows
+Name: USB Gamepad
+ID: VID:0x1a34PID:0x0210
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_none
+Axis 1: joy_use_hdng
+Axis 2: joy_use_ptch
+Axis 3: joy_use_roll
+
+Button 0: sim/flight_controls/speed_brakes_up_one
+Button 1: sim/flight_controls/aileron_trim_right
+Button 2: sim/flight_controls/aileron_trim_left
+Button 3: sim/flight_controls/speed_brakes_down_one
+Button 4: sim/flight_controls/flaps_up
+Button 5: sim/engines/throttle_down
+Button 6: sim/flight_controls/flaps_down
+Button 7: sim/engines/throttle_up
+Button 8: sim/ground_ops/pushback_left
+Button 9: sim/ground_ops/pushback_right
+Button 11: sim/ground_ops/pushback_stop
+
+Hat Switch 0 Direction 1: sim/flight_controls/pitch_trim_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/flight_controls/rudder_trim_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/flight_controls/pitch_trim_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/flight_controls/rudder_trim_left
+Hat Switch 0 Direction 8: sim/general/hat_switch_up_left

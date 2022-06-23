@@ -1,0 +1,17 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x05fdPID:0x0251
+Display: Raider Pro
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_thro
+
+
+

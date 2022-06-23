@@ -1,0 +1,52 @@
+I
+1100 Version
+JOY
+
+
+OS: Windows
+OS: Linux
+OS: Mac
+
+Name: CLSH Yoke
+
+ID: VID:0x25bbPID:0x0078
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_none
+Axis 1: joy_use_none
+Button 1: sim/autopilot/servos_on
+Button 2: sim/operation/contact_atc
+Button 3: sim/autopilot/servos_off_any
+Button 5: sim/view/default_view
+
+
+
+# FORMAT FOR HAT SWITCHES:
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+Hat Switch 0 Direction 8: sim/general/hat_switch_up_left
+
+View: Face
+-----------------------------------------------------------------------
+Image: CLS_H_Yoke_front.png
+
+Button 1:  105  19
+Button 2:  150  35
+Button 5:  580  35
+Axis 0:     46 329
+Axis 1:    359 324
+
+View: Top
+-----------------------------------------------------------------------
+Image: CLS_H_Yoke_top.png
+
+Hat Switch 0 (Hat 0): 590 135
+Button 0:  114  30
+Button 3:  100 185
+Button 4:  110 140

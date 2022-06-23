@@ -1,0 +1,19 @@
+I
+1100 version
+JOY
+
+OS: Linux
+
+ID: VID:0x068ePID:0x00f1
+Display: Pro Throttle
+
+Assignments:
+--------------------------------------------------------------
+Axis 2: joy_use_thro
+
+Button 1: sim/flight_controls/pitch_trim_down
+Button 3: sim/view/3d_cockpit_cmnd_look
+Button 5: sim/flight_controls/flaps_down
+Button 7: sim/flight_controls/flaps_up
+
+

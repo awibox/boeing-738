@@ -1,0 +1,84 @@
+I
+1100 Version
+JOY
+
+OS: Windows
+
+Name: Logitech Freedom 2.4
+
+ID: VID:0x046dPID:0xc213
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: hidden
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_thro
+Axis 3: joy_use_hdng
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: hidden
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/flight_controls/brakes_toggle_regular
+Button 1: sim/autopilot/servos_off_any
+Button 2: sim/flight_controls/pitch_trim_down
+Button 3: sim/flight_controls/pitch_trim_up
+Button 4: sim/flight_controls/flaps_down
+Button 5: sim/flight_controls/flaps_up
+Button 6: sim/flight_controls/jettison_payload
+Button 7: sim/flight_controls/landing_gear_toggle
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number>: hidden
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 6: sim/general/hat_switch_up
+Hat Switch 0 Direction 7: sim/general/hat_switch_up_right
+
+View: Side
+-----------------------------------------------------------------------
+Image: Logitech_Freedom.png
+
+Hat Switch 0 (Hat Switch): 335 66
+
+Axis Group (Stick): 0 1 
+Axis 1 (x): 530 337
+Axis 0 (y): 0 0
+
+Axis 3 (Stick Twist; z): 604 487
+
+Axis 2 (Throttle; y): 661 774
+
+Button 0 (Trigger): 285 230
+Button 1 (2): 367 256
+Button 4 (5): 294 111 
+Button 2 (3): 406 154 
+Button 5 (6): 390 67
+Button 3 (4): 447 136
+Button 7 (8): 372 708
+Button 6 (7): 305 763
+Button 8 (9): 395 773
+Button 9 (10): 508 757

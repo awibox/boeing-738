@@ -1,0 +1,17 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x06d6PID:0x0026
+Display: Predator TH 400 Gamepad
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_ptch
+Axis 1: joy_use_roll
+Axis 2: joy_use_thro
+
+
+

@@ -1,0 +1,146 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+Name: Saitek X52 Flight Control System
+Display: Saitek X52
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_unused_was_auto_roll	joy_use_unused_was_auto_ptch	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 1: joy_use_roll
+Axis 0: joy_use_ptch
+Axis 2: joy_use_hdng
+Axis 3: joy_use_view_zoom
+Axis 5: joy_use_elev_tr
+Axis 4: joy_use_ailn_tr
+Axis 6: joy_use_thro
+Axis 8: joy_use_view_lr
+Axis 7: joy_use_view_ud
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/weapons/fire_any_shell
+Button 1: sim/weapons/fire_air_to_air
+Button 2: sim/autopilot/servos_off_any
+Button 5: sim/operation/contact_atc
+Button 7: sim/flight_controls/landing_gear_toggle
+Button 8: sim/flight_controls/flaps_up
+Button 9: sim/flight_controls/flaps_down
+Button 10: sim/flight_controls/landing_gear_up
+Button 11: sim/flight_controls/landing_gear_down
+Button 29: sim/flight_controls/brakes_toggle_regular
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+Hat Switch 0 Direction 8: sim/general/hat_switch_up_left
+
+View: Stick
+-----------------------------------------------------------------------
+Image: Saitek_x52_stick.png
+
+Axis Group (Stick): 1 0
+Axis 1 (x): 369 412
+Axis 0 (y): 369 412
+
+Axis 2 (Twist): 386 519
+
+Hat Switch 0 (Hat Switch): 325 227
+
+Button 0 (Trigger): 250 312
+Button 14 (Trigger): 250 325 
+Button 5 (Pinky Trigger): 262 552
+
+#Base
+Button 8 (T1): 347 904
+Button 9 (T2): 368 950
+Button 10 (T3): 414 886
+Button 11 (T4): 438 923
+Button 12 (T5): 483 863
+Button 13 (T6): 503 902
+
+#Stick
+
+#virtual hat switch
+Hat Switch Group (Top Left Hat Switch): 15 16 17 18
+Button 15: 209 176
+
+#Button 15 (↑): 232 131
+#Button 16 (↓): 241 200
+#Button 18 (→): 265 163
+#Button 17 (←): 209 176
+
+Button 1 (Fire): 295 180
+Button 2 (A): 341 126
+Button 3 (B): 359 195
+Button 4 (C): 237 251
+Button 23 (Mode): 371 86
+Button 24 (Mode): 384 111
+Button 25 (Mode): 383 146
+
+View: Throttle
+-----------------------------------------------------------------------
+Image: Saitek_x52_throttle.png
+
+Axis Group (Knob): 8 7
+Axis 7 (x): 456 230
+Axis 8 (y): 456 230
+
+Axis 3 (Silver Slider): 296 259
+Axis 6 (Throttle): 396 144
+Axis 5 (Small Dial): 357 59
+Axis 4 (Large Dial): 470 170
+
+Button 30 (Silver Knob): 451 269
+Button 6 (D): 446 107
+Button 7 (E): 380 26
+Button 29 (i): 498 200
+
+#VIRTUAL HAT SWITCH
+Hat Switch Group (Hat Switch): 21 20 19 22
+Button 21: 260 98
+
+#Button 21 (↑): 292 87
+#Button 19 (↓): 270 125
+#Button 22 (←): 260 98
+#Button 20 (→): 300 108
+
+Button 33 (Wheel - Back): 266 174
+Button 32 (Wheel - Front): 265 152
+Button 31 (Wheel - Press): 240 151
+
+Button 26 (Function): 509 563
+Button 27 (Start/Stop): 572 550
+Button 28 (Reset): 630 535

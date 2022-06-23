@@ -1,0 +1,57 @@
+I
+1100 Version
+JOY
+
+OS: Windows
+
+ID: vr/Oculus/oculus_Right
+Display: Rift Right Controller
+
+Assignments:
+--------------------------------------------------------------
+Reserved Configuration Group 1 (Thumbstick): Axis 0 1 Button 3
+Axis 0: joy_use_vr_touchpad_x
+Axis 0 Type: Centerable
+Axis 0 Calibration: auto
+Axis 1: joy_use_vr_touchpad_y
+Axis 1 Type: Centerable
+Axis 1 Calibration: auto
+Button 3: sim/VR/reserved/touchpad
+
+Configuration Group 2 (Index Finger Trigger): Axis 2 Button 4
+Axis 2: joy_use_vr_trigger
+Axis 2 Type: Linear
+Axis 2 Calibration: auto
+
+# The grip
+Configuration Group 3 (Middle Finger Trigger): Axis 3 Button 1
+Axis 3 Type: Linear
+Axis 3 Calibration: auto
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: hidden
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/VR/reserved/menu
+Button 2: sim/VR/quick_zoom_view
+Button 4: sim/VR/reserved/select
+Button 5: hidden
+
+View: Right Oculus controller
+-----------------------------------------------------------------------
+Image: Oculus_right.png
+
+Configuration Group 1: 298 144
+
+Button 0 (B): 179 151
+Button 2 (A): 219 219
+
+Configuration Group 3: 185 345
+
+View: Right Oculus controller (back)
+-----------------------------------------------------------------------
+Image: Oculus_right_back.png
+
+Configuration Group 3: 327 235
+
+Configuration Group 2: 315 146

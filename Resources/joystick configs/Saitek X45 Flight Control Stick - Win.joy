@@ -1,0 +1,149 @@
+I
+1100 Version
+JOY
+
+OS: Windows
+
+Name: Saitek X45 Flight Control Stick
+
+ID: VID:0x06a3PID:0x2541
+
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: hidden
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud
+Axis 0: joy_use_roll
+Axis 1: joy_use_ptch
+Axis 2: joy_use_thro
+Axis 3: joy_use_none
+Axis 4: joy_use_view_zoom
+Axis 5: joy_use_none
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: hidden
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/weapons/fire_guns
+BUtton 1: sim/autopilot/servos_off_any
+Button 3: sim/weapons/fire_air_to_air
+Button 4: sim/flight_controls/landing_gear_toggle
+Button 6: sim/weapons/fire_any_shell
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number>: hidden
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+Hat Switch 0 Direction 8: sim/general/hat_switch_up_left
+
+View: Stick (Front)
+-----------------------------------------------------------------------
+Image: Saitek_x45-front.png
+
+Axis Group (Stick): 0 1 
+Axis 0 (x): 375 340
+Axis 1 (y): 0 0
+
+Hat Switch 0 (Hat Switch): 370 198
+
+Button 0 (Trigger): 273 300
+Button 6 (Pinky Trigger): 287 454
+Button 3 (Fire): 307 109
+Button 1 (A): 297 172
+Button 2 (B): 362 148
+
+#left hatswitch
+Hat Switch Group (Top Left Hat Switch): 14 15 16 17
+Button 14: 224 172
+
+#Button 14 (↑): 235 141
+#Button 15 (→): 273 146
+#Button 16 (↓): 267 185
+#Button 17 (←): 224 172
+
+View: Stick (Back)
+-----------------------------------------------------------------------
+Image: Saitek_x45_back.png
+
+Axis Group (Stick): 0 1 
+Axis 0 (x): 362 298
+Axis 1 (y): 0 0
+
+Button 0 (Trigger): 476 257
+Button 6 (Pinky Trigger): 469 469
+Button 7 (Fire C): 526 163
+
+View: Throttle (Front)
+-----------------------------------------------------------------------
+Image: Saitek-X45-Throttle-front.png
+
+Axis 2 (Throttle; y): 344 99
+
+Axis 4 (Lower Dial; z): 636 263
+Axis 5 (Upper Dial; z): 721 68
+
+Button 4 (Yellow): 651 123
+Button 5 (Black): 471 201
+
+#virtual hatswitch
+Hat Switch Group (Orange Knob): 22 23 24 25
+Button 22: 543 217
+
+#Button 22 (↑): 538 180
+#Button 23 (→): 560 198
+#Button 24 (↓): 543 217
+#Button 25 (←): 522 196
+
+Button 8 (M1 - left): 501 112
+Button 9 (M1 - center): 538 98
+Button 10 (M1 - right): 570 112
+
+Button 11 (Aux 1 - left): 566 62
+Button 12 (Aux 1 - center): 597 54
+Button 13 (Aux 1 - right): 629 62
+
+View: Throttle (Back)
+-----------------------------------------------------------------------
+Image: Saitek_X45_throttle_back.png
+
+Axis 2 (Throttle; y): 558 153
+Axis 3 (Throttle Lever): 533 288
+Axis 5 (Upper Dial; z): 291 51
+
+#virtual hatswitch
+Hat Switch Group (Orange & Black Hatswitch): 18 19 20 21
+Button 18: 391 160
+
+#Button 18 (↑): 376 119
+#Button 19 (→): 337 131
+#Button 20 (↓): 350 181
+#Button 21 (←): 391 160
+

@@ -1,0 +1,17 @@
+I
+1100 version
+JOY
+
+OS: Windows
+
+ID: VID:0x044fPID:0xb678
+Display: T.Flight Rudder Pedals
+
+Assignments:
+--------------------------------------------------------------
+Axis 0: joy_use_hdng
+Axis 1: joy_use_rbrk
+Axis 2: joy_use_lbrk
+
+
+

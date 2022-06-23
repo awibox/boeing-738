@@ -1,0 +1,184 @@
+I
+1100 Version
+JOY
+
+# NOTE:
+# If X-Plane did not come with a default configuration for your device,
+# and you would like to share *your* configuration with the world,
+# email this file to tyler+joysticks@x-plane.com and we will evaluate
+# it for inclusion with the simulator. Thanks!!
+
+# You can find a complete spec for this file format, with instructions on configuring
+# both the device views and the default configuration here:
+# http://lookup.x-plane.com/_lookup_11_/joy_file_spec.html
+
+# One or more operating systems this file applies to.
+# Windows, macOS, and Linux will index the axes differently, so a file
+# that correctly configures your joystick on one platform is *not*
+# guaranteed to work on the other.
+OS: Windows
+# Other valid options:
+# OS: Linux
+# OS: Mac
+
+# Zero or more device names (provided by the operating system, as seen in the UI)
+# that this .joy file describes.
+# (Note that you need at least one name or one ID, described below.)
+# If more than one device is named, we're saying that *any* of those devices should be configured
+# using the *same* defaults and the same image maps.
+Name: Saitek Pro Flight X-55 Rhino Throttle
+
+# Zero or more USB identifiers (vendor ID + product ID) that this .joy file describes.
+# (Note that you need at least one ID or Name, described above.)
+# If more than USB identifier is given, we'll use this .joy file to configure *any* of those devices.
+ID: VID:0x0738PID:0xa215
+
+Assignments:
+--------------------------------------------------------------
+# FORMAT FOR AXES:
+# Axis <axis number>: hidden
+# Axis <axis number>: <joy use>
+#	Valid joy uses are:
+#	 joy_use_none	joy_use_ptch	joy_use_roll
+#	 joy_use_hdng	joy_use_thro	joy_use_coll
+#	 joy_use_lbrk	joy_use_rbrk	joy_use_prop
+#	 joy_use_mixt	joy_use_heat	joy_use_flap
+#	 joy_use_vect	joy_use_swee	joy_use_sbrk
+#	 joy_use_disp	joy_use_reverse	joy_use_elev_tr
+#	 joy_use_ailn_tr	joy_use_rudd_tr	joy_use_thro1
+#	 joy_use_thro2	joy_use_thro3	joy_use_thro4
+#	 joy_use_prop1	joy_use_prop2	joy_use_prop3
+#	 joy_use_prop4	joy_use_mixt1	joy_use_mixt2
+#	 joy_use_mixt3	joy_use_mixt4	joy_use_reverse1
+#	 joy_use_reverse2	joy_use_reverse3	joy_use_reverse4
+#	 joy_use_gear	joy_use_tiller	joy_use_back_thro
+#	 joy_use_cowl_flaps	JOY_OLD_UNUSED	joy_use_view_lr
+#	 joy_use_view_ud	joy_use_view_zoom	joy_use_camera_lr
+#	 joy_use_camera_ud	joy_use_camera_zoom	joy_use_gun_lr
+#	 joy_use_gun_ud	joy_use_vr_touchpad_x	joy_use_vr_touchpad_y
+#	 joy_use_vr_trigger	joy_use_commands	joy_use_thro5
+#	 joy_use_thro6	joy_use_thro7	joy_use_thro8
+#	 joy_use_cowl_flaps1	joy_use_cowl_flaps2	joy_use_cowl_flaps3
+#	 joy_use_cowl_flaps4	joy_use_cowl_flaps5	joy_use_cowl_flaps6
+#	 joy_use_cowl_flaps7	joy_use_cowl_flaps8
+Axis 0: joy_use_thro2
+Axis 1: joy_use_thro1
+Axis 2: joy_use_none
+Axis 3: joy_use_none
+Axis 4: joy_use_hdng
+Axis 5: joy_use_none
+Axis 6 Type: centerable
+Axis 6: joy_use_none
+Axis 7 Type: centerable
+Axis 7: joy_use_none
+
+
+# FORMAT FOR BUTTONS:
+# Button <button number>: hidden
+# Button <button number>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Button 0: sim/engines/TOGA_power
+Button 5: sim/flight_controls/landing_gear_up
+Button 6: sim/flight_controls/landing_gear_down
+Button 7: sim/flight_controls/flaps_up
+Button 8: sim/flight_controls/flaps_down
+Button 9: sim/flight_controls/speed_brakes_up_one
+Button 10: sim/flight_controls/speed_brakes_down_one
+Button 11: sim/lights/beacon_lights_toggle
+Button 12: sim/lights/landing_lights_on
+Button 13: laminar/B738/toggle_switch/position_light_down
+Button 14: laminar/B738/toggle_switch/position_light_up
+Button 15: laminar/B738/switch/wing_light_off
+Button 16: laminar/B738/switch/wing_light_on
+Button 17: laminar/B738/switch/logo_light_off
+Button 18: laminar/B738/switch/logo_light_on
+Button 34: sim/engines/thrust_reverse_hold
+
+
+# FORMAT FOR HAT SWITCHES:
+# Hat Switch <hat switch number>: hidden
+# Hat Switch <hat switch number> Direction <hat switch direction>: <command path, like "sim/operation/quit">
+#	See X-Plane/Resources/plugins/Commands.txt for a complete list of commands
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+
+View: Front
+-----------------------------------------------------------------------
+Image: Saitek_X-55_Throttle_Front.png
+
+Axis 0 (Throttle Left): 196 112
+Axis 1 (Throttle Right): 280 115
+Axis 2 (RTY3): 309 309
+Axis 3 (RTY4): 355 293
+Axis 5 (Knob F): 388 32
+Axis 4 (Knob G): 396 130
+Axis Group (Ministick): 6 7
+Axis 6 (FB): 320 175
+Axis 7 (LR): 320 175
+
+Button 0 (E): 332 145
+Button 1 (F): 388 32
+Button 2 (G): 396 130
+
+Button 5 (SW 1): 166 325
+Button 6 (SW 2): 149 357
+Button 7 (SW 3): 222 331
+Button 8 (SW 4): 206 366
+Button 9 (SW 5): 281 343
+Button 10 (SW 6): 261 375
+
+Button Group (TGL1): 11 12
+Button 11 (TGL1): 341 248
+Button 12 (TGL1): 341 248
+Button Group (TGL2): 13 14
+Button 13 (TGL2): 381 231
+Button 14 (TGL2): 381 231
+Button Group (TGL3): 15 16
+Button 15 (TGL3): 370 201
+Button 16 (TGL3): 370 201
+Button Group (TGL4): 17 18
+Button 17 (TGL4): 408 183
+Button 18 (TGL4): 408 183
+
+Hat Switch Group (H3): 19 20 21 22
+Button 19: 365 150
+#Button Group (H3): 19 20 21 22
+#Button 19 (H3 ↑): 365 150
+#Button 20 (H3 →): 365 150
+#Button 21 (H3 ↓): 365 150
+#Button 22 (H3 ←): 365 150
+
+Hat Switch Group (H4): 23 24 25 26
+Button 23: 353 177
+#Button Group (H4): 23 24 25 26
+#Button 23 (H4 ↑): 353 177
+#Button 24 (H4 →): 353 177
+#Button 25 (H4 ↓): 353 177
+#Button 26 (H4 ←): 353 177
+
+Button Group (Mode): 31 32 33
+Button 31 (M1): 63 313
+Button 32 (M2): 63 313
+Button 33 (M3): 63 313
+
+Button 34 (SLD): 353 105
+
+View: Rear
+-----------------------------------------------------------------------
+Image: Saitek_X-55_Throttle_Rear.png
+
+Button 3 (H): 278 210
+Button 4 (I): 368 208
+
+Button Group (K1): 27 28
+Button 27 (K1 Up): 530 209
+Button 28 (K1 Down): 530 209
+
+Button Group (Scroll): 29 30
+Button 29 (Scroll Forward): 639 172
+Button 30 (Scroll Backwards): 639 172

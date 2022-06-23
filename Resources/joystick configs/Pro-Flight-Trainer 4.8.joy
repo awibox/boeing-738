@@ -1,0 +1,142 @@
+I
+1100 Version
+JOY
+
+OS: Windows
+
+Name: Pro-Flight-Trainer
+
+# vendor ID not activated by default to apply profil to all PFT PCB's
+# ID: VID:0x03ebPID:0x2402
+
+# activated by default to prevent calibration popup messages
+Calibration: Relaxed
+
+# last changed by CN / 24 December 2018 V.4.8
+# 5 standard axis activated + toe brake mod axis activated by default
+# in order to activate remaining axis, remove "hidden" from the assignement section below.
+# zone button white wire forward
+
+
+# create views and map buttons to pictures
+View: Main View - Standard Axis
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Main.png
+
+Axis 4 (Throttle; z): 463 180
+Axis 5 (Pedals Yaw): 1461 285
+Axis 6 (Collective; y): 273 294
+Axis 7 (Cyclic Pitch Y): 1149 186
+Axis 8 (Cyclic Roll X): 833 160
+
+
+View: Toe Brakes Modification
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-TBM.png
+
+Axis 3 (Right Toe Brake; y): 1291 387
+Axis 2 (Left Toe Brake; y): 600 382
+
+
+View: Grip and Throttle Buttons 1-8
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Buttons.png
+
+Button 0 (Trigger 1): 1261 447 
+Button 1 (Button 2): 1318 684
+Button 2 (Button 3): 1340 297
+Button 3 (Button 4): 1360 534
+Button 4 (Button 5): 341 469
+Button 5 (Button 6): 541 469
+Button 6 (Button 7): 332 340
+Button 7 (Button 8): 332 140
+
+
+View: Grip and Throttle Buttons Zone Down 11-18
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Buttons-Zdown.png
+
+Button 10 (Trigger 11 Zone Down): 1261 447
+Button 11 (Button 12 Zone Down): 1318 684
+Button 12 (Button 13 Zone Down): 1340 297
+Button 13 (Button 14 Zone Down): 1360 534
+Button 14 (Button 15 Zone Down): 341 469
+Button 15 (Button 16 Zone Down): 541 469
+Button 16 (Button 17 Zone Down): 332 340
+Button 17 (Button 18 Zone Down): 332 140
+
+
+View: Grip and Throttle Buttons Zone Up 21-28
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Buttons-Zup.png
+
+Button 20 (Trigger 21 Zone Up): 1261 447
+Button 21 (Button 22 Zone Up): 1318 684
+Button 22 (Button 23 Zone Up): 1340 297
+Button 23 (Button 24 Zone Up): 1360 534
+Button 24 (Button 25 Zone Up): 341 469
+Button 25 (Button 26 Zone Up): 541 469
+Button 26 (Button 27 Zone Up): 332 340
+Button 27 (Button 28 Zone Up): 332 140
+
+View: Grip Hat Switch
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Buttons.png
+
+Hat Switch 2 (Hat Switch): 1465 218
+
+
+View: Grip Hat Switch Zone Up
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Buttons-Zup.png
+
+Hat Switch 0 (Hat Switch Zone Up): 1465 218
+
+
+View: Grip Hat Switch Zone Down
+--------------------------------------------------------------
+Image: Pro-Flight-Trainer-Buttons-Zdown.png
+
+Hat Switch 1 (Hat Switch Zone Down): 1465 218
+
+
+
+# default buttons and axis assignements
+Assignments:
+------------------------------------------------------------------------
+
+Axis 0: hidden
+Axis 1: hidden
+Axis 2: joy_use_lbrk
+Axis 3: joy_use_rbrk
+Axis 4: joy_use_thro
+Axis 5: joy_use_hdng
+Axis 6: joy_use_coll
+Axis 7: joy_use_ptch
+Axis 8: joy_use_roll
+
+Button 0: sim/operation/pause_toggle
+
+# virtual buttons forcing the mapping when non-momentary buttons are pressed (7 and 8)
+# deactivated by default
+# Button 6: Momentary
+# Button 7: Momentary
+# Virtual Button 106: Release Button 6, Release Button 7
+
+# momentary button 9 and 10 not used by default
+Button 8: hidden
+Button 9: hidden
+Button 18: hidden
+Button 19: hidden
+Button 28: hidden
+Button 29: hidden
+
+# Hat switch / default assignement for 3d cockpit view
+Hat Switch 0 Direction 1: sim/general/hat_switch_up
+Hat Switch 0 Direction 2: sim/general/hat_switch_up_right
+Hat Switch 0 Direction 3: sim/general/hat_switch_right
+Hat Switch 0 Direction 4: sim/general/hat_switch_down_right
+Hat Switch 0 Direction 5: sim/general/hat_switch_down
+Hat Switch 0 Direction 6: sim/general/hat_switch_down_left
+Hat Switch 0 Direction 7: sim/general/hat_switch_left
+Hat Switch 0 Direction 8: sim/general/hat_switch_up_left

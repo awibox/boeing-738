@@ -1,0 +1,83 @@
+I
+1100 version
+JOY
+
+OS: Mac
+
+ID: VID:0x054cPID:0x0268
+Display: PlayStation 3 Controller
+
+Assignments:
+--------------------------------------------------------------
+Configuration Group 1 (Left Stick): Axis 0 1 Button 1
+Axis 0 Type: Centerable
+Axis 0: joy_use_roll
+Axis 1 Type: Centerable
+Axis 1: joy_use_ptch
+
+Configuration Group 2 (Right Stick): Axis 2 3 Button 2
+Axis 2: joy_use_hdng
+Axis 2 Type: Centerable
+Axis 3: joy_use_none
+Axis 3 Type: Centerable
+Button 2: sim/autopilot/servos_off_any
+
+Button 10: sim/flight_controls/flaps_down
+Button 11: sim/flight_controls/flaps_up
+Button 13: sim/engines/throttle_up
+Button 15: sim/engines/throttle_down
+Button 12: sim/flight_controls/pitch_trim_up
+Button 14: sim/flight_controls/pitch_trim_down
+
+Exclusive Configuration Group 3 (Left Trigger): Axis 14 Button 8
+Exclusive Configuration Group 4 (Left Shoulder Btn): Axis 16 Button 10
+Exclusive Configuration Group 5 (Right Trigger): Axis 15 Button 9
+Exclusive Configuration Group 6 (Right Shoulder Btn): Axis 17 Button 11
+
+Exclusive Configuration Group 7 (↑): Axis 10 Button 4
+Exclusive Configuration Group 8 (←): Axis 13 Button 7
+Exclusive Configuration Group 9 (→): Axis 11 Button 5
+Exclusive Configuration Group 10 (↓): Axis 12 Button 6
+
+Exclusive Configuration Group 11 (X): Axis 20 Button 14
+Exclusive Configuration Group 12 (◯): Axis 19 Button 13
+Exclusive Configuration Group 13 (△): Axis 18 Button 12
+Exclusive Configuration Group 14 (□): Axis 21 Button 15
+
+Axis 4: hidden
+Axis 5: hidden
+Axis 6: hidden
+Axis 7: hidden
+Axis 8: hidden
+Axis 9: hidden
+Axis 22: hidden
+Axis 23: hidden
+Axis 24: hidden
+
+Button 17: hidden
+Button 18: hidden
+
+View: Front
+------------------------------------------------------------
+Image: PS3_controller.png
+Configuration Group 1: 351 307
+Configuration Group 2: 703 340
+
+Configuration Group 3: 476 82
+Configuration Group 4: 366 18
+Configuration Group 5: 1035 61
+Configuration Group 6: 1150 138
+
+Configuration Group 7: 298 136
+Configuration Group 8: 213 186
+Configuration Group 9: 336 193
+Configuration Group 10: 252 244
+
+Configuration Group 11: 908 327
+Configuration Group 12: 1035 259
+Configuration Group 13: 972 173
+Configuration Group 14: 843 244
+
+Button 16 (PS): 591 303
+Button 0 (Select): 514 225
+Button 3 (Start): 712 243
