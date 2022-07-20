@@ -71,7 +71,6 @@ sw_itemvoid::::::::::::::: OVHD, HYDRAULIC PANEL ::::::::::::::::::::::::
 sw_item_c:\white\ENGINE HYDRAULIC PUMPS 1 & 2\grey\, ON|SET:(laminar/B738/toggle_switch/hydro_pumps1_pos:1)&&(sim/operation/failures/rel_hydpmp:0)&&(laminar/B738/toggle_switch/hydro_pumps2_pos:1)&&(sim/operation/failures/rel_hydpmp2:0)
 sw_item_c:\white\ELECTRIC HYDRAULIC PUMPS A & B\grey\, ON|SET:(laminar/B738/toggle_switch/electric_hydro_pumps1_pos:1)&&(laminar/B738/toggle_switch/electric_hydro_pumps2_pos:1)&&(sim/operation/failures/rel_hydpmp_ele:0)
 ################################################################################################################
-sw_continue:PRELIMINARY FLIGHTDECK PROCEDURE (2/3):sim/cockpit2/switches/generic_lights_switch[5]:0
 sw_continue
 ################################################################################################################
 
@@ -274,7 +273,7 @@ sw_item_c:\white\APU BLEED\grey\, OFF (ON IF APU IS RUNNING)|CHECKED:(laminar/B7
 sw_itemvoid:
 sw_itemvoid::::::::::::::: OVHD, CABIN PRESSURIZATION PANEL ::
 sw_item_c:\white\FLIGHT ALTITUDE INDICATOR\grey\, CRUISE ALTITUDE|SET:sim/cockpit/pressure/max_allowable_altitude:{laminar/B738/autopilot/fmc_cruise_alt}
-sw_item_c:\white\LANDING ALTITUDE INDICATOR\grey\, RWY ELEVATION|SET:laminar/B738/pressurization/knobs/landing_alt:{laminar/B738/pfd/des_rwy_altitude}-25|{laminar/B738/pfd/des_rwy_altitude}+25
+sw_item_c:\white\LANDING ALTITUDE INDICATOR\grey\, RWY ELEVATION|SET:laminar/B738/pressurization/knobs/landing_alt:{laminar/B738/pfd/des_rwy_altitude}-75|{laminar/B738/pfd/des_rwy_altitude}+75
 sw_itemvoid_c:\grey\(ROUND RWY ELEVATION TO NEAREST +-50 FT)
 sw_item_c:\white\PRESSURIZATION MODE SELECTOR\grey\, AUTO|SET:laminar/B738/toggle_switch/air_valve_ctrl:0
 
@@ -395,10 +394,8 @@ sw_itemvoid::::::::::::::: OVHD, LIGHTING & AIR PRESSURE PANEL :::::
 sw_item_c:\white\ANTI COLLISION LIGHT\grey\, ON|SET:(sim/cockpit/electrical/beacon_lights_on:1)&&(sim/operation/failures/rel_lites_beac:0)
 sw_item_c:\white\LEFT & RIGHT AIR CONDITIONING PACKS\grey\, OFF|SET:(laminar/B738/air/l_pack_pos:0)&&(laminar/B738/air/r_pack_pos:0)
 
-
 sw_itemvoid:
 sw_itemvoid::::::::::::::: RADIO PANEL & EFB, GROUND SERVICE :::::::
-sw_item_c:\white\CONTACT ATC\grey\, REQUEST PUSH & START|DONE:laminar/b738/fmodpack/real_groundspeed:>0.5
 sw_item_c:\white\START PUSHBACK\grey\, AS GIVEN BY ATC|DONE:laminar/b738/fmodpack/real_groundspeed:>0.5
 sw_itemvoid_c:\grey\FOLLOW GROUND INSTRUCTIONS FOR PUSHBACK
 
@@ -437,13 +434,11 @@ sw_item_c:\white\ISOLATION VALVE\grey\, AUTO|SET:laminar/B738/air/isolation_valv
 sw_item_c:\white\APU BLEED\grey\, OFF|SET:laminar/B738/toggle_switch/bleed_air_apu_pos:0
 
 sw_itemvoid:
-sw_itemvoid::::::::::::::: GROUND SERVICE :::::::::::::::::::::::::::::::::::
-sw_item_c:\white\PUSHBACK CREW\grey\, DISCONN. & SHOWING BYPASS PIN|CHECKED:(bp/anim/clear_signal:!0)||(bp/started:0)&&(sim/cockpit2/controls/flap_ratio:!0)
-sw_itemvoid_c:\grey\(DO NOTHING UNTIL YOU´VE SEEN BYPASS PIN!)
-
-sw_itemvoid:
 sw_itemvoid::::::::::::::: MCP PANEL & YOKE :::::::::::::::::::::::::::::::::
 sw_item_c:\white\TAKE-OFF FLAPS\grey\, AS CALCULATED|SET:laminar/B738/FMS/takeoff_flaps_set:1
+sw_item_c:\white\RECALL\grey\, SIXPACK PUSH (CAPTAIN OR FIRST OFFICER)|SET:(laminar/B738/annunciator/six_pack_air_cond:1)&&(laminar/B738/annunciator/six_pack_apu:1)&&(laminar/B738/annunciator/six_pack_doors:1)&&(laminar/B738/annunciator/six_pack_elec:1)&&(laminar/B738/annunciator/six_pack_eng:1)&&(laminar/B738/annunciator/six_pack_fire:1)&&(laminar/B738/annunciator/six_pack_flt_cont:1)&&(laminar/B738/annunciator/six_pack_fuel:1)&&(laminar/B738/annunciator/six_pack_hyd:1)&&(laminar/B738/annunciator/six_pack_ice:1)&&(laminar/B738/annunciator/six_pack_irs:1)&&(laminar/B738/annunciator/six_pack_overhead:1)
+sw_item_c:\white\RECALL\grey\, SIXPACK ALL OFF (CAPTAIN & FIRST OFFICER)|CHECKED:(laminar/B738/annunciator/six_pack_air_cond:0)&&(laminar/B738/annunciator/six_pack_apu:0)&&(laminar/B738/annunciator/six_pack_doors:0)&&(laminar/B738/annunciator/six_pack_elec:0)&&(laminar/B738/annunciator/six_pack_eng:0)&&(laminar/B738/annunciator/six_pack_fire:0)&&(laminar/B738/annunciator/six_pack_flt_cont:0)&&(laminar/B738/annunciator/six_pack_fuel:0)&&(laminar/B738/annunciator/six_pack_hyd:0)&&(laminar/B738/annunciator/six_pack_ice:0)&&(laminar/B738/annunciator/six_pack_irs:0)&&(laminar/B738/annunciator/six_pack_overhead:0)
+sw_item_c:\white\LOWER DU\grey\, SWITCH OFF ENGINE PAGE (MFD)|SET:laminar/B738/systems/lowerDU_page:0
 sw_item_c:\white\FLIGHT CONTROL ELEVATORS\grey\, FULL FORWARD|CHECKED:sim/cockpit2/controls/yoke_pitch_ratio:-1
 sw_item_c:\white\FLIGHT CONTROL ELEVATORS\grey\, FULL BACK|CHECKED:sim/cockpit2/controls/yoke_pitch_ratio:1
 sw_item_c:\white\FLIGHT CONTROL AILERONS\grey\, FULL LEFT|CHECKED:sim/cockpit2/controls/yoke_roll_ratio:-1
@@ -468,10 +463,6 @@ sw_itemvoid:
 sw_itemvoid::::::::::::::: CONSOLE ::::::::::::::::::::::::::::::::::::::::::
 sw_itemvoid_c:\grey\ENSURE AIRCRAFT IS CLEAR LEFT & CLEAR RIGHT
 sw_item_c:\white\PARKING BRAKE\grey\, RELEASE|SET:sim/cockpit2/controls/parking_brake_ratio:0
-sw_item_c:\white\TAKE OFF CONFIG\grey\, TEST (NO HORN SOUND)|CHECKED:(laminar/B738/engine/thrust1_leveler:>0.5)&&(laminar/B738/engine/thrust2_leveler:>0.5)&&(laminar/B738/annunciator/takeoff_config:0)
-sw_itemvoid_c:\grey\(ENSURES AIRCRAFT IS PROPERLY SET FOR T/O)
-sw_item_c:\white\BRAKES\grey\, TEST|CHECKED:(sim/cockpit2/controls/parking_brake_ratio:>0.15)||(laminar/b738/fmodpack/real_groundspeed:><3)&&(sim/cockpit2/controls/left_brake_ratio:>0)||(laminar/b738/fmodpack/real_groundspeed:><3)&&(sim/cockpit2/controls/right_brake_ratio:>0)
-sw_itemvoid_c:\grey\MAX. 15KTS (TURNS) / 25KTS (STRAIGHTS)
 
 sw_itemvoid:
 sw_itemvoid::::::::::::::: EFB, GROUND SERVICE :::::::::::::::::::::::
@@ -479,7 +470,6 @@ sw_item_c:\white\CABIN LIGHTING\grey\, TAKEOFF (PASSENGER AREA)|SET:737x/cabin/s
 
 sw_itemvoid:
 sw_itemvoid::::::::::::::: OVHD, MIDDLE PANEL :::::::::::::::::::::::::
-sw_item_c:\white\CHIMES ONLY\grey\, ON (SEAT CABIN CREW)|SET:laminar/B738/toggle_switch/no_smoking_pos:2
 sw_item_c:\white\CABIN ATTEND BUTTON\grey\, PUSH (AS CREWINFO)|SET:laminar/B738/push_button/attend_pos:1
 ################################################################################################################
 sw_continue
@@ -536,7 +526,6 @@ sw_checklist:CLIMB PROCEDURE (1/2):CLIMB PROCEDURE (1/2)
 sw_itemvoid::::::::::::::: MFD PANEL ::::::::::::::::::::::::::::::::::::::::::::
 sw_item_c:\white\LANDING GEAR LEVER\grey\, UP|DONE:laminar/B738/controls/gear_handle_down:0
 
-
 sw_itemvoid:
 sw_itemvoid::::::::::::::: OVHD, MIDDLE & ANTI ICE PANEL :::::::::::::
 sw_item_c:\white\LEFT & RIGHT WIPER\grey\, PARK POSITION (MAX 200KTS)|SET:(laminar/B738/switches/left_wiper_pos:0)&&(laminar/B738/switches/right_wiper_pos:0)
@@ -545,12 +534,6 @@ sw_itemvoid_c:\white\WING ANTI ICE\grey\, TEMP. <10 DEGREES & VIS. MOIST.
 
 sw_itemvoid:
 sw_itemvoid::::::::::::::: MCP & MFD PANEL ::::::::::::::::::::::::::::::::::
-sw_item_c:\white\AUTOPILOT\grey\, ENGAGE (ABOVE 1000 FT AGL)|SET:(laminar/B738/autopilot/cmd_a_status:1)||(laminar/B738/autopilot/cmd_b_status:1)
-sw_itemvoid_c:\grey\.............. FOR NOISE ABATEMENT DEPARTURES
-sw_itemvoid_c:\grey\START FLAPS UP SPEED & FLAPS RETRACT ACC.
-sw_itemvoid_c:\grey\NADP1:   >3000 FT AGL      NADP2:    > 800 FT AGL
-sw_itemvoid_c:\grey\PROC A:  >3000 FT AGL      PROC B:  >1000 FT AGL
-sw_itemvoid_c:\grey\ACCELERATE NORMAL CLIMB SPEED >3000 FT AGL
 sw_item_c:\white\AIRSPEED BUG\grey\, FLAPS UP SPEED|SET:(laminar/B738/autopilot/mcp_speed_dial_kts_mach:{laminar/B738/pfd/flaps_up}-2|{laminar/B738/pfd/flaps_up}+2)||(laminar/B738/autopilot/vnav_status1:1)&&(laminar/B738/autopilot/cmd_a_status:1)||(laminar/B738/autopilot/vnav_status1:1)&&(laminar/B738/autopilot/cmd_b_status:1)
 sw_item_c:\white\FLAPS\grey\, RETRACT (ABOVE EACH PREVIOUS FLAP BUG)|DONE:(sim/cockpit2/controls/flap_ratio:0)&&(sim/operation/failures/rel_flap_act:0)
 ################################################################################################################
@@ -576,12 +559,6 @@ sw_item_c:\white\ENGINE BLEED AIR 1 & 2\grey\, ON|CHECKED:(laminar/B738/toggle_s
 sw_item_c:\white\LEFT & RIGHT AIR CONDITIONING PACK\grey\, AUTO|CHECKED:(laminar/B738/air/l_pack_pos:>0)&&(laminar/B738/air/r_pack_pos:>0)
 sw_item_c:\white\ISOLATION VALVE\grey\, AUTO|CHECKED:laminar/B738/air/isolation_valve_pos:1
 sw_item_c:\white\LEFT & RIGHT DUCT PRESSURE\grey\, WORKING|CHECKED:(laminar/B738/indicators/duct_press_L:>0)&&(laminar/B738/indicators/duct_press_R:>0)
-
-sw_itemvoid:
-sw_itemvoid::::::::::::::: EFIS PANEL & YOKE ::::::::::::::::::::::::::::::::
-sw_itemvoid_c:\grey\.............. AT TRANSITION ALT. OR IF CLEARED TO FL
-sw_item_c:\white\ALTIMETERS\grey\, STD (CAPTAIN & FIRST OFFICER)|SET:(laminar/B738/EFIS/baro_set_std_pilot:1)&&(laminar/B738/EFIS/baro_set_std_copilot:1)
-sw_item_c:\white\STANDBY ALTIMETER\grey\, STD|SET:laminar/B738/gauges/standby_alt_std_mode:1
 
 sw_itemvoid:
 sw_itemvoid::::::::::::::: OVHD, MIDDLE PANEL :::::::::::::::::::::::::::::
@@ -614,10 +591,6 @@ sw_item_c:\white\LEFT & RIGHT AIR CONDITIONING PACK\grey\, AUTO|CHECKED:(laminar
 sw_item_c:\white\ISOLATION VALVE\grey\, AUTO|CHECKED:laminar/B738/air/isolation_valve_pos:1
 sw_item_c:\white\LEFT & RIGHT DUCT PRESSURE\grey\, WORKING|CHECKED:(laminar/B738/indicators/duct_press_L:>0)&&(laminar/B738/indicators/duct_press_R:>0)
 sw_item_c:\white\FASTEN BELTS\grey\, AUTO|SET:laminar/B738/toggle_switch/seatbelt_sign_pos:1
-
-sw_itemvoid:
-sw_itemvoid::::::::::::::: MCP PANEL :::::::::::::::::::::::::::::::::::::::::::::::::::
-sw_item_c:\white\HEADING BUG\grey\, ADJUST TRACK|SET:laminar/B738/hud/hdg_bug_tape:-1|1
 ################################################################################################################
 sw_continue
 ################################################################################################################
@@ -640,7 +613,6 @@ sw_checklist:DESCENT PROCEDURE (1/2):DESCENT PROCEDURE (1/2)
 ################################################################################################################
 sw_itemvoid::::::::::::::: FMC, DES/FORECAST ::::::::::::::::::::::::::::::::
 sw_item_c:\white\TRANSITION LEVEL\grey\, ARRIVAL|SET:laminar/B738/FMS/fmc_trans_lvl:>0
-
 
 sw_itemvoid:
 sw_itemvoid::::::::::::::: EFIS & RADIO & MCP PANEL :::::::::::::::::::::::
@@ -684,20 +656,11 @@ sw_item_c:\white\LOGO LIGHT\grey\, ON (IN DARKNESS)|AS NEEDED:(sim/cockpit2/swit
 sw_item_c:\white\FASTEN BELTS\grey\, ON|SET:laminar/B738/toggle_switch/seatbelt_sign_pos:2
 
 sw_itemvoid:
-sw_itemvoid::::::::::::::: EFIS PANEL :::::::::::::::::::::::::::::::::::::::::::::::::
-sw_itemvoid_c:\grey\.............. AT THE LATEST PASSING TRANSITION LEVEL
-sw_item_c:\white\BAROMETRIC REF. SELECTOR\grey\, HPA (CAPT. & FIRST OFF.)|SET:(laminar/B738/EFIS_control/capt/baro_in_hpa:1)&&(laminar/B738/EFIS_control/capt/baro_in_hpa:1)
-sw_item_c:\white\BAROMETRIC VALUE\grey\, LOCAL QNH|SET:(laminar/B738/EFIS/baro_set_std_pilot:0)&&(laminar/B738/EFIS/baro_set_std_copilot:0)
-sw_item_c:\white\STANDBY ALTIMETER BAROMETRIC SELECTOR\grey\, HPA|SET:laminar/B738/gauges/standby_alt_mode:{laminar/B738/EFIS_control/capt/baro_in_hpa}
-sw_item_c:\white\STANDBY ALTIMETER\grey\, LOCAL QNH|SET:laminar/B738/gauges/standby_alt_std_mode:0
-
-sw_itemvoid:
 sw_itemvoid::::::::::::::: EFB, MAIN MENU ::::::::::::::::::::::::::::::::::::::::::
 sw_item_c:\white\PAX ANNOUNCEMENT\grey\, PREPARE LANDING MESSAGE|PLAYED:laminar/b738/fmodpack/play_preland_msg:1
 ################################################################################################################
 sw_continue
 ################################################################################################################
-
 
 
 
@@ -707,18 +670,14 @@ sw_checklist:APPROACH PROCEDURE:APPROACH PROCEDURE
 sw_itemvoid::::::::::::::: CONSOLE & MCP & MIDDLE PANEL :::::
 sw_itemvoid_c:\grey\.............. AT THE END OF THE STAR (CHART)
 sw_item_c:\white\AIRSPEED BUG\grey\, FLAPS UP SPEED|SET:(laminar/B738/autopilot/mcp_speed_dial_kts_mach:{laminar/B738/pfd/flaps_up}-2|{laminar/B738/pfd/flaps_up}+2)||(laminar/B738/autopilot/mcp_speed_dial_kts_mach:<{laminar/B738/pfd/flaps_up})&&(sim/flightmodel/position/indicated_airspeed:<{laminar/B738/pfd/flaps_up})
-sw_item_c:\white\CHIMES ONLY\grey\, ON (SEAT CABIN CREW)|SET:laminar/B738/toggle_switch/no_smoking_pos:2
 sw_item_c:\white\CABIN ATTEND BUTTON\grey\, PUSH (AS CREWINFO)|SET:laminar/B738/push_button/attend_pos:1
 sw_itemvoid_c:\grey\.............. ON APPROACH (CHART)
 sw_item_c:\white\FLAPS\grey\, 1|SET:sim/flightmodel2/controls/flap_handle_deploy_ratio:>=0.125
 sw_item_c:\white\AIRSPEED BUG\grey\, FLAPS 1 SPEED|SET:(laminar/B738/autopilot/mcp_speed_dial_kts_mach:{laminar/B738/pfd/flaps_1}-2|{laminar/B738/pfd/flaps_1}+2)||(laminar/B738/autopilot/mcp_speed_dial_kts_mach:<{laminar/B738/pfd/flaps_1})&&(sim/flightmodel/position/indicated_airspeed:<{laminar/B738/pfd/flaps_1})
 sw_item_c:\white\FLAPS\grey\, 5|SET:sim/flightmodel2/controls/flap_handle_deploy_ratio:>=0.375
 sw_item_c:\white\AIRSPEED BUG\grey\, FLAPS 5 SPEED|SET:(laminar/B738/autopilot/mcp_speed_dial_kts_mach:{laminar/B738/pfd/flaps_5}-2|{laminar/B738/pfd/flaps_5}+2)||(laminar/B738/autopilot/mcp_speed_dial_kts_mach:<{laminar/B738/pfd/flaps_5})&&(sim/flightmodel/position/indicated_airspeed:<{laminar/B738/pfd/flaps_5})
-sw_item_c:\white\VOR LOC / APP SWITCH\grey\, (IF DIAMONDS ALIVE)|SET:(laminar/B738/autopilot/vorloc_status:1)||(laminar/B738/autopilot/app_status:1)||(laminar/B738/autopilot/autoland_status:1)
-sw_item_c:\white\AUTOPILOT\grey\, CMD B (ONLY CAT III AUTOLANDING)|AS NEEDED:(laminar/B738/autopilot/cmd_b_status:1)&&(laminar/B738/autopilot/cmd_b_status:1)||(laminar/B738/autopilot/mcp_alt_dial:><0)||(laminar/B738/autopilot/mcp_hdg_dial:><0)
 sw_itemvoid_c:\grey\.............. INTERCEPT LOCALIZER
 sw_item_c:\white\HEADING BUG\grey\, RUNWAY HDG ACC. CHART|SET:laminar/B738/autopilot/mcp_hdg_dial:round({laminar/B738/fms/dest_runway_crs})-1|round({laminar/B738/fms/dest_runway_crs})+1
-
 ################################################################################################################
 sw_continue
 ################################################################################################################
@@ -770,7 +729,6 @@ sw_itemvoid::::::::::::::: CONSOLE & MFD PANEL :::::::
 sw_item_c:\white\REVERSE LEVERS\grey\, IDLE <60 KNOTS|DONE:(laminar/B738/flt_ctrls/reverse_lever12:>0)&&(laminar/B738/flt_ctrls/reverse_lever12:<0.2)&&(laminar/b738/fmodpack/real_groundspeed:<60)
 sw_item_c:\white\REVERSE LEVERS\grey\, CLOSED <30 KNOTS|DONE:(laminar/B738/flt_ctrls/reverse_lever12:0)&&(laminar/b738/fmodpack/real_groundspeed:<30)
 sw_item_c:\white\AUTO BRAKES\grey\, OFF|SET:laminar/B738/autobrake/autobrake_pos:1
-sw_item_c:\white\MANUAL BRAKES\grey\, TILL <15 KNOTS|DONE:laminar/b738/fmodpack/real_groundspeed:<15
 sw_item_c:\white\SPEEDBRAKE LEVER\grey\, DOWN (RETRACT)|SET:sim/cockpit2/controls/speedbrake_ratio:0
 sw_item_c:\white\FLAPS\grey\, UP & CLEAR RUNWAY|DONE:sim/cockpit2/controls/flap_ratio:0
 
@@ -920,7 +878,6 @@ sw_itemvoid:
 sw_itemvoid::::::::::::::: GLARESHIELD :::::::::::::::::::::::::::::::::::
 sw_item_c:\white\NORMAL CHECKLIST\grey\, SHUTDOWN (READ OUT)|COMPL.:laminar/B738/checklist/manip_enable:1:0
 ################################################################################################################
-sw_continue:SAFETY INSPECTION PROCEDURE:(laminar/B738/annunciator/fwd_cargo:1)&&(laminar/B738/annunciator/aft_cargo:1)
 sw_continue
 ################################################################################################################
 
