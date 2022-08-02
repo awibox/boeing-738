@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "SaveName": "Boeing 737-800 Zibo",
+  "SaveName": "boeing-738-zibo",
   "Data": [
     {
       "ButtonNumber": 0,
@@ -8,17 +8,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/toggle_switch/electric_hydro_pumps1",
-              "Value": "",
-              "VariableIsCustom": true,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              }
-            },
-            {
-              "Variable": "laminar/B738/toggle_switch/electric_hydro_pumps2",
+              "Variable": "laminar/B738/toggle_switch/gpu_dn",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -72,7 +62,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/autopilot/flight_director_toggle",
+              "Variable": "laminar/B738/toggle_switch/gen1_dn",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -82,7 +72,7 @@
               }
             },
             {
-              "Variable": "laminar/B738/autopilot/flight_director_fo_toggle",
+              "Variable": "laminar/B738/toggle_switch/gen2_dn",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -162,9 +152,19 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/toggle_switch/yaw_dumper",
+              "Variable": "laminar/B738/toggle_switch/apu_gen1_dn",
               "Value": "",
-              "VariableIsCustom": false,
+              "VariableIsCustom": true,
+              "VariableBoundaries": {
+                "MinValue": "",
+                "MaxValue": "",
+                "Clamp": false
+              }
+            },
+            {
+              "Variable": "laminar/B738/toggle_switch/apu_gen2_dn",
+              "Value": "",
+              "VariableIsCustom": true,
               "VariableBoundaries": {
                 "MinValue": "",
                 "MaxValue": "",
@@ -202,7 +202,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_HC_EFIS",
+              "Variable": "laminar/B738/rotary/eng1_start_grd",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -242,7 +242,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_HC_Wxr",
+              "Variable": "laminar/B738/rotary/eng2_start_grd",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -280,28 +280,7 @@
       "ButtonNumber": 6,
       "PressEvent": [
         {
-          "Variables": [
-            {
-              "Variable": "laminar/B738/EFIS_control/capt/push_button/std_press",
-              "Value": "",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              }
-            },
-            {
-              "Variable": "laminar/B738/EFIS_control/fo/push_button/std_press",
-              "Value": "",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              }
-            }
-          ],
+          "Variables": [],
           "Variable": "",
           "Value": "",
           "Name": "",
@@ -495,7 +474,7 @@
           "ConditionLogic": "",
           "Conditions": [
             {
-              "Variable": "laminar/B738/knob/left_wiper_up",
+              "Variable": "FlyWithLua/B738/Cmd_OT_GPWS",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -508,7 +487,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "laminar/B738/knob/right_wiper_up",
+              "Variable": "FlyWithLua/B738/Cmd_OT_Light_test_dn",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -517,38 +496,12 @@
                 "Clamp": false
               },
               "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "IAS",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "sim/cockpit2/switches/generic_lights_switch:7",
-              "Value": ".4",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
               "ConditionValue": "CRS",
               "ConditionIsCustom": false
             },
             {
-              "Variable": "sim/cockpit2/switches/generic_lights_switch:6",
-              "Value": ".4",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "CRS",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/electric/panel_brightness:0",
-              "Value": "1",
+              "Variable": "FlyWithLua/B738/Cmd_OT_mach",
+              "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
                 "MinValue": "",
@@ -560,46 +513,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "laminar/B738/electric/panel_brightness:1",
-              "Value": "1",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "HDG",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/electric/panel_brightness:2",
-              "Value": "1",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "HDG",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/electric/panel_brightness:3",
-              "Value": "1",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "HDG",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/EFIS_control/capt/map_range_up",
+              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_exting2",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -612,7 +526,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_RP_Barometer_Up",
+              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_exting",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -655,7 +569,7 @@
           "ConditionLogic": "",
           "Conditions": [
             {
-              "Variable": "laminar/B738/knob/left_wiper_dn",
+              "Variable": "FlyWithLua/B738/Cmd_HC_FUEL_FLOW",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -668,7 +582,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "laminar/B738/knob/right_wiper_dn",
+              "Variable": "FlyWithLua/B738/Cmd_OT_Light_test_up",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -677,38 +591,12 @@
                 "Clamp": false
               },
               "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "IAS",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "sim/cockpit2/switches/generic_lights_switch:7",
-              "Value": "0",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
               "ConditionValue": "CRS",
               "ConditionIsCustom": false
             },
             {
-              "Variable": "sim/cockpit2/switches/generic_lights_switch:6",
-              "Value": "0",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "CRS",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/electric/panel_brightness:0",
-              "Value": "0",
+              "Variable": "FlyWithLua/B738/Cmd_OT_Cargo",
+              "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
                 "MinValue": "",
@@ -720,46 +608,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "laminar/B738/electric/panel_brightness:1",
-              "Value": "0",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "HDG",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/electric/panel_brightness:2",
-              "Value": "0",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "HDG",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/electric/panel_brightness:3",
-              "Value": "0",
-              "VariableIsCustom": false,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              },
-              "Condition": "INT:FCU_SELECTOR, string",
-              "ConditionValue": "HDG",
-              "ConditionIsCustom": false
-            },
-            {
-              "Variable": "laminar/B738/EFIS_control/capt/map_range_dn",
+              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_TEST2",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -772,7 +621,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_RP_Barometer_Dn",
+              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_TEST",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -808,7 +657,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_HC_Gear_Off",
+              "Variable": "FlyWithLua/B738/Cmd_OT_Recall",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -1840,7 +1689,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/toggle_switch/gpu_dn",
+              "Variable": "laminar/B738/engine/mixture1_idle",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -1880,7 +1729,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/toggle_switch/gpu_up",
+              "Variable": "laminar/B738/engine/mixture1_cutoff",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -1920,17 +1769,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/toggle_switch/apu_gen1_dn",
-              "Value": "",
-              "VariableIsCustom": true,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              }
-            },
-            {
-              "Variable": "laminar/B738/toggle_switch/apu_gen2_dn",
+              "Variable": "laminar/B738/engine/mixture2_idle",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -1970,17 +1809,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/toggle_switch/apu_gen1_up",
-              "Value": "",
-              "VariableIsCustom": true,
-              "VariableBoundaries": {
-                "MinValue": "",
-                "MaxValue": "",
-                "Clamp": false
-              }
-            },
-            {
-              "Variable": "laminar/B738/toggle_switch/apu_gen2_up",
+              "Variable": "laminar/B738/engine/mixture2_cutoff",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -2020,7 +1849,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/knob/transponder_tara",
+              "Variable": "FlyWithLua/B738/Cmd_OT_Cont_On",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -2060,7 +1889,7 @@
         {
           "Variables": [
             {
-              "Variable": "laminar/B738/knob/transponder_stby",
+              "Variable": "FlyWithLua/B738/Cmd_OT_Cont_Off",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -2131,22 +1960,7 @@
       "ConditionLogic": "AND",
       "Conditions": [
         {
-          "Condition": "laminar/B738/toggle_switch/hydro_pumps1_pos",
-          "ConditionValue": ">=1",
-          "ConditionIsCustom": false
-        },
-        {
-          "Condition": "laminar/B738/toggle_switch/hydro_pumps2_pos",
-          "ConditionValue": ">=1",
-          "ConditionIsCustom": false
-        },
-        {
-          "Condition": "laminar/B738/toggle_switch/electric_hydro_pumps1_pos",
-          "ConditionValue": ">=1",
-          "ConditionIsCustom": false
-        },
-        {
-          "Condition": "laminar/B738/toggle_switch/electric_hydro_pumps2_pos",
+          "Condition": "laminar/B738/annunciator/ground_power_avail",
           "ConditionValue": ">=1",
           "ConditionIsCustom": false
         }
@@ -2158,8 +1972,8 @@
       "ConditionLogic": "AND",
       "Conditions": [
         {
-          "Condition": "sim/cockpit/switches/EFIS_shows_weather",
-          "ConditionValue": ">=1",
+          "Condition": "laminar/B738/engine/starter2_pos",
+          "ConditionValue": "0",
           "ConditionIsCustom": false
         }
       ]
@@ -2170,13 +1984,8 @@
       "ConditionLogic": "AND",
       "Conditions": [
         {
-          "Condition": "laminar/B738/annunciator/yaw_damp",
-          "ConditionValue": "0",
-          "ConditionIsCustom": false
-        },
-        {
-          "Condition": "laminar/B738/electric/battery_pos",
-          "ConditionValue": ">0",
+          "Condition": "sim/cockpit/electrical/generator_apu_on",
+          "ConditionValue": ">=1",
           "ConditionIsCustom": false
         }
       ]
@@ -2187,7 +1996,12 @@
       "ConditionLogic": "AND",
       "Conditions": [
         {
-          "Condition": "laminar/B738/autopilot/master_capt_status",
+          "Condition": "laminar/B738/annunciator/trans_bus_off1",
+          "ConditionValue": ">=1",
+          "ConditionIsCustom": false
+        },
+        {
+          "Condition": "laminar/B738/annunciator/trans_bus_off2",
           "ConditionValue": ">=1",
           "ConditionIsCustom": false
         }
@@ -2211,8 +2025,8 @@
       "ConditionLogic": "AND",
       "Conditions": [
         {
-          "Condition": "laminar/B738/EFIS/EFIS_airport_on",
-          "ConditionValue": ">=1",
+          "Condition": "laminar/B738/engine/starter1_pos",
+          "ConditionValue": "0",
           "ConditionIsCustom": false
         }
       ]
@@ -2222,11 +2036,7 @@
       "BitIndex": 6,
       "ConditionLogic": "AND",
       "Conditions": [
-        {
-          "Condition": "laminar/B738/EFIS/baro_set_std_pilot",
-          "ConditionValue": ">=1",
-          "ConditionIsCustom": false
-        }
+
       ]
     },
     {
