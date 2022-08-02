@@ -8,13 +8,11 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     Script_Title = "Saitek script for Zibo " .. PLANE_ICAO .. ""
     Script_Version = "2.0.8"
     End_Time = os.time()
-    Msg_Timer = 20
-    GearNotOff = true
+    Msg_Timer = 10
     PanelsReady = false
     SwitchPanel = false
     RadioPanel = false
     MultiPanel = false
-    Mag_Switch_Mode = false
     local plugin_Signature = "XPlane Plugin.1.2.6.0"
     dataref("SIM_TIME", "sim/time/total_running_time_sec", "readonly")
 
@@ -128,8 +126,6 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             dataref("XPDR_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1uprxpdr/status", "readonly")
             dataref("XPDR_CRS_INC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfineincticks/status", "readonly")
             dataref("XPDR_CRS_DEC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfinedecticks/status", "readonly")
-            XPDR_Delay = SIM_TIME + 0.25
-            CAP_FO_QNH = true
         end
 
         if MultiPanel then
@@ -150,6 +146,9 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             dataref("MULTI_CABIN_ALT", "laminar/B738/annunciator/cabin_alt", "readonly")
             dataref("MULTI_FIRE_1", "laminar/B738/annunciator/engine1_fire", "readonly")
             dataref("MULTI_FIRE_2", "laminar/B738/annunciator/engine2_fire", "readonly")
+            dataref("MULTI_MASTER_CAUTION", "laminar/B738/annunciator/master_caution_light", "readonly")
+            dataref("MULTI_LOWERDU_SYS", "laminar/B738/systems/lowerDU_page2", "readonly")
+            dataref("MULTI_YAW", "laminar/B738/annunciator/yaw_damp", "readonly")
         end
     end
     do_often("Init_Loop()")
@@ -201,23 +200,23 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
         if SwitchPanel == false then
             return
         end
-        if SWITCH_STARTOFF == 1 and Mag_Switch_Mode == false and Auto_Brake_Setting ~= 1 then
+        if SWITCH_STARTOFF == 1 and Auto_Brake_Setting ~= 1 then
             command_once("laminar/B738/knob/autobrake_rto")
             Auto_Brake_Setting = 1
         end
-        if SWITCH_STARTRIGHT == 1 and Mag_Switch_Mode == false and Auto_Brake_Setting ~= 2 then
+        if SWITCH_STARTRIGHT == 1 and Auto_Brake_Setting ~= 2 then
             command_once("laminar/B738/knob/autobrake_off")
             Auto_Brake_Setting = 2
         end
-        if SWITCH_STARTLEFT == 1 and Mag_Switch_Mode == false and Auto_Brake_Setting ~= 3 then
+        if SWITCH_STARTLEFT == 1 and Auto_Brake_Setting ~= 3 then
             command_once("laminar/B738/knob/autobrake_1")
             Auto_Brake_Setting = 3
         end
-        if SWITCH_STARTBOTH == 1 and Mag_Switch_Mode == false and Auto_Brake_Setting ~= 4 then
+        if SWITCH_STARTBOTH == 1 and Auto_Brake_Setting ~= 4 then
             command_once("laminar/B738/knob/autobrake_2")
             Auto_Brake_Setting = 4
         end
-        if SWITCH_STARTSTART == 1 and Mag_Switch_Mode == false and Auto_Brake_Setting ~= 5 then
+        if SWITCH_STARTSTART == 1 and Auto_Brake_Setting ~= 5 then
             command_once("laminar/B738/knob/autobrake_3")
             Auto_Brake_Setting = 5
         end
@@ -342,28 +341,18 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- Fuel pump
     function Cmd_SP_FuelPump_On()
-        if FN_BUTTON == 0 then
-            set("laminar/B738/fuel/fuel_tank_pos_lft1", 1)
-            set("laminar/B738/fuel/fuel_tank_pos_lft2", 1)
-            set("laminar/B738/fuel/fuel_tank_pos_rgt1", 1)
-            set("laminar/B738/fuel/fuel_tank_pos_rgt2", 1)
-        else
-            set("laminar/B738/fuel/fuel_tank_pos_ctr1", 1)
-            set("laminar/B738/fuel/fuel_tank_pos_ctr2", 1)
-        end
+        set("laminar/B738/fuel/fuel_tank_pos_lft1", 1)
+        set("laminar/B738/fuel/fuel_tank_pos_lft2", 1)
+        set("laminar/B738/fuel/fuel_tank_pos_rgt1", 1)
+        set("laminar/B738/fuel/fuel_tank_pos_rgt2", 1)
     end
     create_command("FlyWithLua/B738/Cmd_SP_FuelPump_On", "Cmd_SP_FuelPump_On", "Cmd_SP_FuelPump_On()", "", "")
 
     function Cmd_SP_FuelPump_Off()
-        if FN_BUTTON == 0 then
-            set("laminar/B738/fuel/fuel_tank_pos_lft1", 0)
-            set("laminar/B738/fuel/fuel_tank_pos_lft2", 0)
-            set("laminar/B738/fuel/fuel_tank_pos_rgt1", 0)
-            set("laminar/B738/fuel/fuel_tank_pos_rgt2", 0)
-        else
-            set("laminar/B738/fuel/fuel_tank_pos_ctr1", 0)
-            set("laminar/B738/fuel/fuel_tank_pos_ctr2", 0)
-        end
+        set("laminar/B738/fuel/fuel_tank_pos_lft1", 0)
+        set("laminar/B738/fuel/fuel_tank_pos_lft2", 0)
+        set("laminar/B738/fuel/fuel_tank_pos_rgt1", 0)
+        set("laminar/B738/fuel/fuel_tank_pos_rgt2", 0)
     end
     create_command("FlyWithLua/B738/Cmd_SP_FuelPump_Off", "Cmd_SP_FuelPump_Off", "Cmd_SP_FuelPump_Off()", "", "")
 
@@ -476,44 +465,26 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- Taxi
     function Cmd_SP_Taxi_On()
-        if FN_BUTTON == 0 then
-            if PLANE_ICAO == "B737" or "B739" then
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
-            else
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_on")
-            end
-            command_once("laminar/B738/switch/rwy_light_left_on")
-            command_once("laminar/B738/switch/rwy_light_right_on")
+        if PLANE_ICAO == "B737" or "B739" then
+            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
+            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
         else
-            if PLANE_ICAO == "B737" or "B739" then
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
-            else
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_on")
-            end
+            command_once("laminar/B738/toggle_switch/taxi_light_brightness_on")
         end
+        command_once("laminar/B738/switch/rwy_light_left_on")
+        command_once("laminar/B738/switch/rwy_light_right_on")
     end
     create_command("FlyWithLua/B738/Cmd_SP_Taxi_On", "Cmd_SP_Taxi_On", "Cmd_SP_Taxi_On()", "", "")
 
     function Cmd_SP_Taxi_Off()
-        if FN_BUTTON == 0 then
-            if PLANE_ICAO == "B737" or "B739" then
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
-            else
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_off")
-            end
-            command_once("laminar/B738/switch/rwy_light_left_off")
-            command_once("laminar/B738/switch/rwy_light_right_off")
+        if PLANE_ICAO == "B737" or "B739" then
+            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
+            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
         else
-            if PLANE_ICAO == "B737" or "B739" then
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
-            else
-                command_once("laminar/B738/toggle_switch/taxi_light_brightness_off")
-            end
+            command_once("laminar/B738/toggle_switch/taxi_light_brightness_off")
         end
+        command_once("laminar/B738/switch/rwy_light_left_off")
+        command_once("laminar/B738/switch/rwy_light_right_off")
     end
     create_command("FlyWithLua/B738/Cmd_SP_Taxi_Off", "Cmd_SP_Taxi_Off", "Cmd_SP_Taxi_Off()", "", "")
 
@@ -616,21 +587,8 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     end
     create_command("FlyWithLua/B738/Cmd_OT_Flood_Off", "Cmd_OT_Flood_Off", "Cmd_OT_Flood_Off()", "", "")
 
-    function Cmd_OT_Warning()
-        if FN_BUTTON == 0 then
-            CommandBegin("laminar/B738/push_button/master_caution1")
-        else
-            command_once("jd/copilot/widget")
-        end
-    end
-    create_command("FlyWithLua/B738/Cmd_OT_Warning", "Cmd_OT_Warning", "Cmd_OT_Warning()", "", "")
-
     function Cmd_OT_ATTEND()
-        if FN_BUTTON == 0 then
-            CommandBegin("laminar/B738/push_button/attend")
-        else
-            CommandBegin("laminar/B738/push_button/grd_call", 2)
-        end
+        CommandBegin("laminar/B738/push_button/attend")
     end
     create_command("FlyWithLua/B738/Cmd_OT_ATTEND", "Cmd_OT_ATTEND", "Cmd_OT_ATTEND()", "", "")
 
@@ -651,7 +609,7 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     create_command("FlyWithLua/B738/Cmd_OT_FIRE_TEST2", "Cmd_OT_FIRE_TEST2", "Cmd_OT_FIRE_TEST2()", "", "")
 
     function Cmd_OT_FIRE_exting()
-        CommandBegin("laminar/B738/toggle_switch/fire_test_rgt", 3)
+        CommandBegin("laminar/B738/toggle_switch/fire_test_rgt", 5)
     end
     create_command("FlyWithLua/B738/Cmd_OT_FIRE_exting", "Cmd_OT_FIRE_exting", "Cmd_OT_FIRE_exting()", "", "")
 
@@ -682,20 +640,12 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     create_command("FlyWithLua/B738/Cmd_OT_mach", "Cmd_OT_mach", "Cmd_OT_mach()", "", "")
 
     function Cmd_OT_Light_test_up()
-        if FN_BUTTON == 0 then
-            CommandBegin("laminar/B738/toggle_switch/bright_test_up")
-        else
-            CommandBegin("laminar/B738/toggle_switch/ap_disconnect_test1_up", 1)
-        end
+        CommandBegin("laminar/B738/toggle_switch/bright_test_up")
     end
     create_command("FlyWithLua/B738/Cmd_OT_Light_test_up", "Cmd_OT_Light_test_up", "Cmd_OT_Light_test_up()", "", "")
 
     function Cmd_OT_Light_test_dn()
-        if FN_BUTTON == 0 then
-            CommandBegin("laminar/B738/toggle_switch/bright_test_dn")
-        else
-            CommandBegin("laminar/B738/toggle_switch/ap_disconnect_test1_dn", 1)
-        end
+        CommandBegin("laminar/B738/toggle_switch/bright_test_dn")
     end
     create_command("FlyWithLua/B738/Cmd_OT_Light_test_dn", "Cmd_OT_Light_test_dn", "Cmd_OT_Light_test_dn()", "", "")
 
@@ -758,8 +708,7 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- AP
     function Cmd_MP_AP()
-        command_once("laminar/B738/push_button/gear_off")
-        GearNotOff = false
+        CommandBegin("laminar/B738/push_button/master_caution1")
     end
     create_command("FlyWithLua/B738/Cmd_MP_AP", "Cmd_MP_AP", "Cmd_MP_AP()", "", "")
 
@@ -779,7 +728,7 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- NAV
     function Cmd_MP_NAV()
-        command_once("laminar/B738/knob/autobrake_max")
+        command_once("laminar/B738/toggle_switch/yaw_dumper")
     end
     create_command("FlyWithLua/B738/Cmd_MP_NAV", "Cmd_MP_NAV", "Cmd_MP_NAV()", "", "")
 
@@ -795,7 +744,7 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- ALT
     function Cmd_MP_ALT()
-        CommandBegin("laminar/B738/LDU_control/push_button/MFD_ENG")
+        command_once("laminar/B738/knob/autobrake_max")
     end
     create_command("FlyWithLua/B738/Cmd_MP_ALT", "Cmd_MP_ALT", "Cmd_MP_ALT()", "", "")
 
@@ -827,20 +776,12 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- Flaps
     function Cmd_MP_Flaps_Dn()
-        if FN_BUTTON == 0 then
-            command_once("laminar/B738/toggle_switch/seatbelt_sign_dn")
-        else
-            command_once("laminar/B738/toggle_switch/no_smoking_dn")
-        end
+        command_once("laminar/B738/toggle_switch/seatbelt_sign_dn")
     end
     create_command("FlyWithLua/B738/Cmd_MP_Flaps_Dn", "Cmd_MP_Flaps_Dn", "Cmd_MP_Flaps_Dn()", "", "")
 
     function Cmd_MP_Flaps_Up()
-        if FN_BUTTON == 0 then
-            command_once("laminar/B738/toggle_switch/seatbelt_sign_up")
-        else
-            command_once("laminar/B738/toggle_switch/no_smoking_up")
-        end
+        command_once("laminar/B738/toggle_switch/seatbelt_sign_up")
     end
     create_command("FlyWithLua/B738/Cmd_MP_Flaps_Up", "Cmd_MP_Flaps_Up", "Cmd_MP_Flaps_Up()", "", "")
 
@@ -864,46 +805,13 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     function RefreshLights()
-        if RadioPanel then
-            if XPDR_STATUS_UP == 1 then
-                if XPDR_CRS_INC_UP == 1 and FN_BUTTON == 0 then
-                    if CAP_FO_QNH == true then
-                        command_once("laminar/B738/EFIS_control/capt/baro_in_hpa_up")
-                    else
-                        command_once("laminar/B738/EFIS_control/fo/baro_in_hpa_up")
-                    end
-                end
-                if XPDR_CRS_DEC_UP == 1 and FN_BUTTON == 0 then
-                    if CAP_FO_QNH == true then
-                        command_once("laminar/B738/EFIS_control/capt/baro_in_hpa_dn")
-                    else
-                        command_once("laminar/B738/EFIS_control/fo/baro_in_hpa_dn")
-                    end
-                end
-                if ACTSTBY_STATUS_UP == 1 then
-                    if XPDR_Delay < SIM_TIME then
-                        XPDR_Delay = SIM_TIME + 0.25
-                        if FN_BUTTON == 0 then
-                            CAP_FO_QNH = not CAP_FO_QNH
-                            if CAP_FO_QNH == true then
-                                XPLMSpeakString("Captain.")
-                            else
-                                XPLMSpeakString("First Officer.")
-                            end
-                        else
-                            if CAP_FO_QNH == true then
-                                CommandBegin("laminar/B738/EFIS_control/capt/push_button/std_press")
-                            else
-                                CommandBegin("laminar/B738/EFIS_control/fo/push_button/std_press")
-                            end
-                        end
-                    end
-                end
-            end
-        end
-
         if MultiPanel then
-
+            -- Master Caution
+            if MULTI_MASTER_CAUTION == 1 then
+                Status_Integer1 = 2
+            else
+                Status_Integer1 = 0
+            end
             -- POS Light
             if MULTI_POS_LIGHT == -1 then
                 Status_Integer2 = 2
@@ -912,43 +820,42 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             else
                 Status_Integer2 = 1
             end
-
-            if MULTI_AUTOBRAKE == 1 then
+            -- YAW
+            if MULTI_YAW == 1 then
                 Status_Integer3 = 2
             else
                 Status_Integer3 = 0
             end
-
+            -- CABIN ALT
             if MULTI_CABIN_ALT == 1 then
                 Status_Integer4 = 2
             else
                 Status_Integer4 = 0
             end
-
-
-            -- LOck door
-            if MULTI_GEAR == 0 and GearNotOff then
-                Status_Integer1 = 2
+            -- AUTOBRAKE
+            if MULTI_AUTOBRAKE == 1 then
+                Status_Integer5 = 2
             else
-                Status_Integer1 = 0
+                Status_Integer5 = 0
             end
-
+            -- LOWER DU SYS
+            if MULTI_LOWERDU_SYS == 1 then
+                Status_Integer6 = 2
+            else
+                Status_Integer6 = 0
+            end
             -- FIRE1
             if MULTI_FIRE_1 == 1 then
                 Status_Integer7 = 2
             else
                 Status_Integer7 = 0
             end
-
-
             -- FIRE2
             if MULTI_FIRE_2 == 1 then
                 Status_Integer8 = 2
             else
                 Status_Integer8 = 0
             end
-
-
             -- AT
             if MULTI_AT_SWITCH == 1 then
                 command_once("laminar/B738/toggle_switch/cockpit_dome_dn")
