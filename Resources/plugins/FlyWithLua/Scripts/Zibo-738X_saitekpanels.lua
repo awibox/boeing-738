@@ -727,20 +727,20 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     -- NAV
-    function Cmd_MP_NAV()
-        command_once("laminar/B738/toggle_switch/yaw_dumper")
+    function Cmd_MP_YAW()
+        CommandBegin("laminar/B738/alert/alt_horn_cutout")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_NAV", "Cmd_MP_NAV", "Cmd_MP_NAV()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_YAW", "Cmd_MP_YAW", "Cmd_MP_YAW()", "", "")
 
     -- --------------------------------------------------------------------------------
 
     -- IAS
     function Cmd_MP_IAS()
-        CommandBegin("laminar/B738/alert/alt_horn_cutout")
+        command_once("laminar/B738/toggle_switch/yaw_dumper")
     end
     create_command("FlyWithLua/B738/Cmd_MP_IAS", "Cmd_MP_IAS", "Cmd_MP_IAS()", "", "")
 
-    -- --------------------------------------------------------------------------------
+    -- ----------------CommandBegin("laminar/B738/alert/alt_horn_cutout")----------------------------------------------------------------
 
     -- ALT
     function Cmd_MP_ALT()
@@ -822,15 +822,15 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             end
             -- YAW
             if MULTI_YAW == 1 then
-                Status_Integer3 = 2
-            else
-                Status_Integer3 = 0
-            end
-            -- CABIN ALT
-            if MULTI_CABIN_ALT == 1 then
                 Status_Integer4 = 2
             else
                 Status_Integer4 = 0
+            end
+            -- CABIN ALT
+            if MULTI_CABIN_ALT == 1 then
+                Status_Integer3 = 2
+            else
+                Status_Integer3 = 0
             end
             -- AUTOBRAKE
             if MULTI_AUTOBRAKE == 1 then

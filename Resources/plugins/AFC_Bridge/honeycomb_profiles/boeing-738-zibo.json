@@ -280,7 +280,18 @@
       "ButtonNumber": 6,
       "PressEvent": [
         {
-          "Variables": [],
+          "Variables": [
+            {
+              "Variable": "laminar/B738/toggle_switch/flt_dk_door_open",
+              "Value": "",
+              "VariableIsCustom": false,
+              "VariableBoundaries": {
+                "MinValue": "",
+                "MaxValue": "",
+                "Clamp": false
+              }
+            }
+          ],
           "Variable": "",
           "Value": "",
           "Name": "",
@@ -1996,13 +2007,33 @@
       "ConditionLogic": "AND",
       "Conditions": [
         {
-          "Condition": "laminar/B738/annunciator/trans_bus_off1",
-          "ConditionValue": ">=1",
+          "Condition": "laminar/B738/engine/mixture_ratio2",
+          "ConditionValue": "1",
           "ConditionIsCustom": false
         },
         {
-          "Condition": "laminar/B738/annunciator/trans_bus_off2",
-          "ConditionValue": ">=1",
+          "Condition": "laminar/B738/engine/mixture_ratio1",
+          "ConditionValue": "1",
+          "ConditionIsCustom": false
+        },
+        {
+          "Condition": "laminar/B738/engine/starter2_pos",
+          "ConditionValue": "1",
+          "ConditionIsCustom": false
+        },
+        {
+          "Condition": "laminar/B738/engine/starter1_pos",
+          "ConditionValue": "1",
+          "ConditionIsCustom": false
+        },
+        {
+          "Condition": "laminar/B738/annunciator/gen_off_bus2",
+          "ConditionValue": "1",
+          "ConditionIsCustom": false
+        },
+        {
+          "Condition": "laminar/B738/annunciator/gen_off_bus1",
+          "ConditionValue": "1",
           "ConditionIsCustom": false
         }
       ]
@@ -2036,7 +2067,11 @@
       "BitIndex": 6,
       "ConditionLogic": "AND",
       "Conditions": [
-
+        {
+          "Condition": "laminar/B738/door/flt_dk_door_ratio",
+          "ConditionValue": ">0",
+          "ConditionIsCustom": false
+        }
       ]
     },
     {
