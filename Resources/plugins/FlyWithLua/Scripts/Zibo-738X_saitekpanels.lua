@@ -103,8 +103,8 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             dataref("SWITCH_STROBE", "bgood/xsaitekpanels/switchpanel/strobe/status", "writable")
             dataref("SWITCH_TAXI", "bgood/xsaitekpanels/switchpanel/taxi/status", "writable")
             dataref("SWITCH_LANDING", "bgood/xsaitekpanels/switchpanel/landing/status", "writable")
-            dataref("HYDRO_ELEC1", "laminar/B738/toggle_switch/electric_hydro_pumps1_pos", "writable")
-            dataref("HYDRO_ELEC2", "laminar/B738/toggle_switch/electric_hydro_pumps2_pos", "writable")
+            dataref("SWITCH_HYDRO_EL1", "laminar/B738/toggle_switch/electric_hydro_pumps1_pos", "writable")
+            dataref("SWITCH_HYDRO_EL2", "laminar/B738/toggle_switch/electric_hydro_pumps2_pos", "writable")
             dataref("Battery_Cover", "laminar/B738/button_switch/cover_position", "readonly", 2)
             dataref("Battery_Position", "laminar/B738/electric/battery_pos", "writable")
             dataref("Panel_Brightness0", "laminar/B738/electric/panel_brightness", "writable", 0)
@@ -119,13 +119,6 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             dataref("Flood_Brightness12", "laminar/B738/electric/generic_brightness", "writable", 12)
             dataref("ADIRUSwitchL", "laminar/B738/toggle_switch/irs_left", "readonly")
             dataref("ADIRUSwitchR", "laminar/B738/toggle_switch/irs_right", "readonly")
-        end
-
-        if RadioPanel then
-            dataref("ACTSTBY_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1upractstby/status", "readonly")
-            dataref("XPDR_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1uprxpdr/status", "readonly")
-            dataref("XPDR_CRS_INC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfineincticks/status", "readonly")
-            dataref("XPDR_CRS_DEC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfinedecticks/status", "readonly")
         end
 
         if MultiPanel then
@@ -150,6 +143,7 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             dataref("MULTI_LOWERDU_SYS", "laminar/B738/systems/lowerDU_page2", "readonly")
             dataref("MULTI_YAW", "laminar/B738/annunciator/yaw_damp", "readonly")
         end
+        command_once("jd/copilot/widget")
     end
     do_often("Init_Loop()")
 
@@ -229,7 +223,6 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     function Cmd_SP_Bat_On()
         if Battery_Cover == 1 then
             CommandBegin("laminar/B738/button_switch_cover02")
-            command_once("jd/copilot/widget")
         end
         Battery_Position = 1
     end
@@ -246,17 +239,17 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     -- Alt
-    function Cmd_SP_Alt_On()
-        HYDRO_ELEC1 = 1
-        HYDRO_ELEC2 = 1
+    function Cmd_SP_HydroEl_On()
+        SWITCH_HYDRO_El1 = 1
+        SWITCH_HYDRO_EL2 = 1
     end
-    create_command("FlyWithLua/B738/Cmd_SP_Alt_On", "Cmd_SP_Alt_On", "Cmd_SP_Alt_On()", "", "")
+    create_command("FlyWithLua/B738/Cmd_SP_HydroEl_On", "Cmd_SP_HydroEl_On", "Cmd_SP_HydroEl_On()", "", "")
 
-    function Cmd_SP_Alt_Off()
-        HYDRO_ELEC1 = 0
-        HYDRO_ELEC2 = 0
+    function Cmd_SP_HydroEl_Off()
+        SWITCH_HYDRO_EL1 = 0
+        SWITCH_HYDRO_EL2 = 0
     end
-    create_command("FlyWithLua/B738/Cmd_SP_Alt_Off", "Cmd_SP_Alt_Off", "Cmd_SP_Alt_Off()", "", "")
+    create_command("FlyWithLua/B738/Cmd_SP_HydroEl_Off", "Cmd_SP_HydroEl_Off", "Cmd_SP_HydroEl_Off()", "", "")
 
     -- --------------------------------------------------------------------------------
 
@@ -399,15 +392,15 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     -- Cowl
-    function Cmd_SP_Cowl_On()
+    function Cmd_SP_Xpdr_On()
         command_once("laminar/B738/knob/transponder_tara")
     end
-    create_command("FlyWithLua/B738/Cmd_SP_Cowl_On", "Cmd_SP_Cowl_On", "Cmd_SP_Cowl_On()", "", "")
+    create_command("FlyWithLua/B738/Cmd_SP_Xpdr_On", "Cmd_SP_Xpdr_On", "Cmd_SP_Xpdr_On()", "", "")
 
-    function Cmd_SP_Cowl_Off()
+    function Cmd_SP_Xpdr_Off()
         command_once("laminar/B738/knob/transponder_stby")
     end
-    create_command("FlyWithLua/B738/Cmd_SP_Cowl_Off", "Cmd_SP_Cowl_Off", "Cmd_SP_Cowl_Off()", "", "")
+    create_command("FlyWithLua/B738/Cmd_SP_Xpdr_Off", "Cmd_SP_Xpdr_Off", "Cmd_SP_Xpdr_Off()", "", "")
 
     -- --------------------------------------------------------------------------------
 
@@ -533,41 +526,37 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     end
     create_command("FlyWithLua/B738/Cmd_HC_FUEL_FLOW", "Cmd_HC_FUEL_FLOW", "Cmd_HC_FUEL_FLOW()", "", "")
 
-    -- --------------------------------------------------------------------------------
-    -- OTHER FUNCTIONS
-    -- --------------------------------------------------------------------------------
-
-    -- Cowl
-    function Cmd_OT_Cont_On()
+    -- Starte cont
+    function Cmd_HC_Cont_On()
         command_once("laminar/B738/rotary/eng1_start_cont")
         command_once("laminar/B738/rotary/eng2_start_cont")
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Cont_On", "Cmd_OT_Cont_On", "Cmd_OT_Cont_On()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Cont_On", "Cmd_HC_Cont_On", "Cmd_HC_Cont_On()", "", "")
 
-    function Cmd_OT_Cont_Off()
+    function Cmd_HC_Cont_Off()
         command_once("laminar/B738/rotary/eng1_start_off")
         command_once("laminar/B738/rotary/eng2_start_off")
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Cont_Off", "Cmd_OT_Cont_Off", "Cmd_OT_Cont_Off()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Cont_Off", "Cmd_HC_Cont_Off", "Cmd_HC_Cont_Off()", "", "")
 
     -- Panel
-    function Cmd_OT_Panel_On()
+    function Cmd_HC_Panel_On()
         Panel_Brightness0 = .8
         Panel_Brightness1 = .8
         Panel_Brightness2 = .8
         Panel_Brightness3 = .8
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Panel_On", "Cmd_OT_Panel_On", "Cmd_OT_Panel_On()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Panel_On", "Cmd_HC_Panel_On", "Cmd_HC_Panel_On()", "", "")
 
-    function Cmd_OT_Panel_Off()
+    function Cmd_HC_Panel_Off()
         Panel_Brightness0 = 0
         Panel_Brightness1 = 0
         Panel_Brightness2 = 0
         Panel_Brightness3 = 0
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Panel_Off", "Cmd_OT_Panel_Off", "Cmd_OT_Panel_Off()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Panel_Off", "Cmd_HC_Panel_Off", "Cmd_HC_Panel_Off()", "", "")
 
-    function Cmd_OT_Flood_On()
+    function Cmd_HC_Flood_On()
         Flood_Brightness6 = .8
         Flood_Brightness7 = .8
         Flood_Brightness8 = .8
@@ -575,9 +564,9 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
         Flood_Brightness11 = .8
         Flood_Brightness12 = .8
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Flood_On", "Cmd_OT_Flood_On", "Cmd_OT_Flood_On()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Flood_On", "Cmd_HC_Flood_On", "Cmd_HC_Flood_On()", "", "")
 
-    function Cmd_OT_Flood_Off()
+    function Cmd_HC_Flood_Off()
         Flood_Brightness6 = 0
         Flood_Brightness7 = 0
         Flood_Brightness8 = 0
@@ -585,12 +574,12 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
         Flood_Brightness11 = 0
         Flood_Brightness12 = 0
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Flood_Off", "Cmd_OT_Flood_Off", "Cmd_OT_Flood_Off()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Flood_Off", "Cmd_HC_Flood_Off", "Cmd_HC_Flood_Off()", "", "")
 
-    function Cmd_OT_ATTEND()
+    function Cmd_HC_ATTEND()
         CommandBegin("laminar/B738/push_button/attend")
     end
-    create_command("FlyWithLua/B738/Cmd_OT_ATTEND", "Cmd_OT_ATTEND", "Cmd_OT_ATTEND()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_ATTEND", "Cmd_HC_ATTEND", "Cmd_HC_ATTEND()", "", "")
 
     function Cmd_APUStart_Pos()
         CommandBegin("laminar/B738/spring_toggle_switch/APU_start_pos_dn")
@@ -598,63 +587,63 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     end
     create_command("FlyWithLua/B738/Cmd_APUStart_Pos", "Cmd_APUStart_Pos", "Cmd_APUStart_Pos()", "", "")
 
-    function Cmd_OT_FIRE_TEST()
+    function Cmd_HC_FIRE_TEST()
         CommandBegin("laminar/B738/toggle_switch/fire_test_lft", 1)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_FIRE_TEST", "Cmd_OT_FIRE_TEST", "Cmd_OT_FIRE_TEST()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_FIRE_TEST", "Cmd_HC_FIRE_TEST", "Cmd_HC_FIRE_TEST()", "", "")
 
-    function Cmd_OT_FIRE_TEST2()
+    function Cmd_HC_FIRE_TEST2()
         CommandBegin("laminar/B738/toggle_switch/exting_test_lft", 1)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_FIRE_TEST2", "Cmd_OT_FIRE_TEST2", "Cmd_OT_FIRE_TEST2()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_FIRE_TEST2", "Cmd_HC_FIRE_TEST2", "Cmd_HC_FIRE_TEST2()", "", "")
 
-    function Cmd_OT_FIRE_exting()
+    function Cmd_HC_FIRE_exting()
         CommandBegin("laminar/B738/toggle_switch/fire_test_rgt", 5)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_FIRE_exting", "Cmd_OT_FIRE_exting", "Cmd_OT_FIRE_exting()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_FIRE_exting", "Cmd_HC_FIRE_exting", "Cmd_HC_FIRE_exting()", "", "")
 
-    function Cmd_OT_FIRE_exting2()
+    function Cmd_HC_FIRE_exting2()
         CommandBegin("laminar/B738/toggle_switch/exting_test_rgt", 1)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_FIRE_exting2", "Cmd_OT_FIRE_exting2", "Cmd_OT_FIRE_exting2()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_FIRE_exting2", "Cmd_HC_FIRE_exting2", "Cmd_HC_FIRE_exting2()", "", "")
 
-    function Cmd_OT_GPWS()
+    function Cmd_HC_GPWS()
         CommandBegin("laminar/B738/push_button/gpws_test", 1)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_GPWS", "Cmd_OT_GPWS", "Cmd_OT_GPWS()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_GPWS", "Cmd_HC_GPWS", "Cmd_HC_GPWS()", "", "")
 
-    function Cmd_OT_Recall()
+    function Cmd_HC_Recall()
         CommandBegin("laminar/B738/push_button/capt_six_pack", 1)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Recall", "Cmd_OT_Recall", "Cmd_OT_Recall()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Recall", "Cmd_HC_Recall", "Cmd_HC_Recall()", "", "")
 
-    function Cmd_OT_Cargo()
+    function Cmd_HC_Cargo()
         CommandBegin("laminar/B738/push_button/cargo_fire_test_push", 3)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Cargo", "Cmd_OT_Cargo", "Cmd_OT_Cargo()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Cargo", "Cmd_HC_Cargo", "Cmd_HC_Cargo()", "", "")
 
-    function Cmd_OT_mach()
+    function Cmd_HC_mach()
         CommandBegin("laminar/B738/push_button/mach_warn1_test", 1)
         CommandBegin("laminar/B738/push_button/mach_warn2_test", 1)
     end
-    create_command("FlyWithLua/B738/Cmd_OT_mach", "Cmd_OT_mach", "Cmd_OT_mach()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_mach", "Cmd_HC_mach", "Cmd_HC_mach()", "", "")
 
-    function Cmd_OT_Light_test_up()
+    function Cmd_HC_Light_test_up()
         CommandBegin("laminar/B738/toggle_switch/bright_test_up")
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Light_test_up", "Cmd_OT_Light_test_up", "Cmd_OT_Light_test_up()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Light_test_up", "Cmd_HC_Light_test_up", "Cmd_HC_Light_test_up()", "", "")
 
-    function Cmd_OT_Light_test_dn()
+    function Cmd_HC_Light_test_dn()
         CommandBegin("laminar/B738/toggle_switch/bright_test_dn")
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Light_test_dn", "Cmd_OT_Light_test_dn", "Cmd_OT_Light_test_dn()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Light_test_dn", "Cmd_HC_Light_test_dn", "Cmd_HC_Light_test_dn()", "", "")
 
     -- GENS
-    function Cmd_OT_Gen_On()
+    function Cmd_HC_Gen_On()
         CommandBegin("laminar/B738/toggle_switch/gen1_dn")
         CommandBegin("laminar/B738/toggle_switch/gen2_dn")
     end
-    create_command("FlyWithLua/B738/Cmd_OT_Gen_On", "Cmd_OT_Gen_On", "Cmd_OT_Gen_On()", "", "")
+    create_command("FlyWithLua/B738/Cmd_HC_Gen_On", "Cmd_HC_Gen_On", "Cmd_HC_Gen_On()", "", "")
 
     -- --------------------------------------------------------------------------------
     -- RADIO PANEL FUNCTIONS
@@ -707,54 +696,54 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     -- AP
-    function Cmd_MP_AP()
+    function Cmd_MP_MasterCaution()
         CommandBegin("laminar/B738/push_button/master_caution1")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_AP", "Cmd_MP_AP", "Cmd_MP_AP()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_MasterCaution", "Cmd_MP_MasterCaution", "Cmd_MP_MasterCaution()", "", "")
 
     -- --------------------------------------------------------------------------------
 
     -- HDG
-    function Cmd_MP_HDG()
+    function Cmd_MP_PosLight()
         if MULTI_POS_LIGHT == 0 then
             command_once("laminar/B738/toggle_switch/position_light_steady")
         else
             command_once("laminar/B738/toggle_switch/position_light_off")
         end
     end
-    create_command("FlyWithLua/B738/Cmd_MP_HDG", "Cmd_MP_HDG", "Cmd_MP_HDG()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_PosLight", "Cmd_MP_PosLight", "Cmd_MP_PosLight()", "", "")
 
     -- --------------------------------------------------------------------------------
 
     -- NAV
-    function Cmd_MP_YAW()
+    function Cmd_MP_CabinAlt()
         CommandBegin("laminar/B738/alert/alt_horn_cutout")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_YAW", "Cmd_MP_YAW", "Cmd_MP_YAW()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_CabinAlt", "Cmd_MP_CabinAlt", "Cmd_MP_CabinAlt()", "", "")
 
     -- --------------------------------------------------------------------------------
 
     -- IAS
-    function Cmd_MP_IAS()
+    function Cmd_MP_YawDumper()
         command_once("laminar/B738/toggle_switch/yaw_dumper")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_IAS", "Cmd_MP_IAS", "Cmd_MP_IAS()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_YawDumper", "Cmd_MP_YawDumper", "Cmd_MP_YawDumper()", "", "")
 
     -- ----------------CommandBegin("laminar/B738/alert/alt_horn_cutout")----------------------------------------------------------------
 
     -- ALT
-    function Cmd_MP_ALT()
+    function Cmd_MP_ABMax()
         command_once("laminar/B738/knob/autobrake_max")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_ALT", "Cmd_MP_ALT", "Cmd_MP_ALT()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_ABMax", "Cmd_MP_ABMax", "Cmd_MP_ABMax()", "", "")
 
     -- --------------------------------------------------------------------------------
 
     -- VS
-    function Cmd_MP_VS()
+    function Cmd_MP_MFDSys()
         CommandBegin("laminar/B738/LDU_control/push_button/MFD_SYS")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_VS", "Cmd_MP_VS", "Cmd_MP_VS()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_MFDSys", "Cmd_MP_MFDSys", "Cmd_MP_MFDSys()", "", "")
 
     -- --------------------------------------------------------------------------------
 
@@ -775,30 +764,30 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     -- Flaps
-    function Cmd_MP_Flaps_Dn()
+    function Cmd_MP_Seatbelt_Dn()
         command_once("laminar/B738/toggle_switch/seatbelt_sign_dn")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_Flaps_Dn", "Cmd_MP_Flaps_Dn", "Cmd_MP_Flaps_Dn()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_Seatbelt_Dn", "Cmd_MP_Seatbelt_Dn", "Cmd_MP_Seatbelt_Dn()", "", "")
 
-    function Cmd_MP_Flaps_Up()
+    function Cmd_MP_Seatbelt_Up()
         command_once("laminar/B738/toggle_switch/seatbelt_sign_up")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_Flaps_Up", "Cmd_MP_Flaps_Up", "Cmd_MP_Flaps_Up()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_Seatbelt_Up", "Cmd_MP_Seatbelt_Up", "Cmd_MP_Seatbelt_Up()", "", "")
 
     -- --------------------------------------------------------------------------------
 
     -- Trim
-    function Cmd_MP_Trim_Dn()
+    function Cmd_MP_Wipers_Dn()
         CommandBegin("laminar/B738/knob/left_wiper_dn")
         CommandBegin("laminar/B738/knob/right_wiper_dn")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_Trim_Dn", "Cmd_MP_Trim_Dn", "Cmd_MP_Trim_Dn()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_Wipers_Dn", "Cmd_MP_Wipers_Dn", "Cmd_MP_Wipers_Dn()", "", "")
 
-    function Cmd_MP_Trim_Up()
+    function Cmd_MP_Wipers_Up()
         CommandBegin("laminar/B738/knob/left_wiper_up")
         CommandBegin("laminar/B738/knob/right_wiper_up")
     end
-    create_command("FlyWithLua/B738/Cmd_MP_Trim_Up", "Cmd_MP_Trim_Up", "Cmd_MP_Trim_Up()", "", "")
+    create_command("FlyWithLua/B738/Cmd_MP_Wipers_Up", "Cmd_MP_Wipers_Up", "Cmd_MP_Wipers_Up()", "", "")
 
     -- --------------------------------------------------------------------------------
     -- REFRESH MULTI PANEL LIGHTS
@@ -820,19 +809,19 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             else
                 Status_Integer2 = 1
             end
-            -- YAW
-            if MULTI_YAW == 1 then
-                Status_Integer4 = 2
-            else
-                Status_Integer4 = 0
-            end
             -- CABIN ALT
             if MULTI_CABIN_ALT == 1 then
                 Status_Integer3 = 2
             else
                 Status_Integer3 = 0
             end
-            -- AUTOBRAKE
+            -- YAW
+            if MULTI_YAW == 1 then
+                Status_Integer4 = 2
+            else
+                Status_Integer4 = 0
+            end
+            -- AUTOBRAKE MAX
             if MULTI_AUTOBRAKE == 1 then
                 Status_Integer5 = 2
             else
@@ -856,7 +845,7 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             else
                 Status_Integer8 = 0
             end
-            -- AT
+            -- DOME LIGHT
             if MULTI_AT_SWITCH == 1 then
                 command_once("laminar/B738/toggle_switch/cockpit_dome_dn")
                 command_once("laminar/B738/toggle_switch/cockpit_dome_dn")
