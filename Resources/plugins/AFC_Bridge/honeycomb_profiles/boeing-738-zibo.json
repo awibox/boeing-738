@@ -485,7 +485,7 @@
           "ConditionLogic": "",
           "Conditions": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_GPWS",
+              "Variable": "FlyWithLua/B738/Cmd_HC_GPWS",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -498,7 +498,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_Light_test_dn",
+              "Variable": "FlyWithLua/B738/Cmd_HC_Light_test_dn",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -511,7 +511,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_mach",
+              "Variable": "FlyWithLua/B738/Cmd_HC_mach",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -524,7 +524,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_exting2",
+              "Variable": "FlyWithLua/B738/Cmd_HC_FIRE_exting2",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -537,7 +537,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_exting",
+              "Variable": "FlyWithLua/B738/Cmd_HC_FIRE_exting",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -593,7 +593,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_Light_test_up",
+              "Variable": "FlyWithLua/B738/Cmd_HC_Light_test_up",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -606,7 +606,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_Cargo",
+              "Variable": "FlyWithLua/B738/Cmd_HC_Cargo",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -619,7 +619,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_TEST2",
+              "Variable": "FlyWithLua/B738/Cmd_HC_FIRE_TEST2",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -632,7 +632,7 @@
               "ConditionIsCustom": false
             },
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_FIRE_TEST",
+              "Variable": "FlyWithLua/B738/Cmd_HC_FIRE_TEST",
               "Value": "",
               "VariableIsCustom": false,
               "VariableBoundaries": {
@@ -668,7 +668,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_Recall",
+              "Variable": "FlyWithLua/B738/Cmd_HC_Recall",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -708,7 +708,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_ATTEND",
+              "Variable": "FlyWithLua/B738/Cmd_HC_ATTEND",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -1860,7 +1860,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_Cont_On",
+              "Variable": "FlyWithLua/B738/Cmd_HC_Cont_On",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
@@ -1900,7 +1900,7 @@
         {
           "Variables": [
             {
-              "Variable": "FlyWithLua/B738/Cmd_OT_Cont_Off",
+              "Variable": "FlyWithLua/B738/Cmd_HC_Cont_Off",
               "Value": "",
               "VariableIsCustom": true,
               "VariableBoundaries": {
