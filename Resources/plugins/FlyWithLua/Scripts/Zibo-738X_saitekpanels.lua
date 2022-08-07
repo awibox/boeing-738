@@ -1,4 +1,4 @@
-if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
+if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
 
     -- --------------------------------------------------------------------------------
     -- SAITEK PANELS for Zibo Boeing 737-800, 700U and 900U by Geoff Lohrere
@@ -10,10 +10,12 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     End_Time = os.time()
     Msg_Timer = 10
     PanelsReady = false
-    SwitchPanel = false
-    RadioPanel = false
-    MultiPanel = false
+    SwitchPanel = true
+    RadioPanel = true
+    MultiPanel = true
     local plugin_Signature = "XPlane Plugin.1.2.6.0"
+    dataref("XplaneVersion", "sim/version/xplane_internal_version", "readonly")
+    dataref("XsaitekVersion", "bgood/xsaitekpanels/version", "readonly")
     dataref("SIM_TIME", "sim/time/total_running_time_sec", "readonly")
 
     -- --------------------------------------------------------------------------------
@@ -49,41 +51,21 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- find plugin ID based on Signature
     local sig_return = XPLM.XPLMFindPluginBySignature(plugin_Signature)
     if (sig_return > 0) then
-        logMsg("FlyWithLua Info: ** Plugin '" .. plugin_Signature .. "' found via Signature, ID = " .. sig_return .. ". Disabling::It conflicts with " .. Script_Title .. "")
+        logMsg("FlyWithLua Info: ** Logitech '"..plugin_Signature.."' found via Signature, ID = "..sig_return..". Disabling::It conflicts with the Xsaitekpanels plugin used for the "..Script_Title..".")
         XPLM.XPLMDisablePlugin(sig_return)
-        XPlanePluginID = "Yes (id=" .. sig_return .. ")"
+        XPlanePluginID = "Yes (Disabled : id="..sig_return..")"
         PluginStatus = 0
     else
-        logMsg("FlyWithLua Info: ** Plugin '" .. plugin_Signature .. "' not found via Signature. Saitek plugin not loaded so nothing to disable")
-        XPlanePluginID = "No"
+        logMsg("FlyWithLua Info: ** Logitech '"..plugin_Signature.."' not found via Signature. Logitech Saitek plugin not installed so nothing to disable.")
+        XPlanePluginID = "No (Nothing to disable)"
     end
 
     function Init_Loop()
         if PanelsReady == true then
             return
         end
-
-        dataref("SwitchPanelCount", "bgood/xsaitekpanels/switchpanel/count", "writable")
-        dataref("RadioPanelCount", "bgood/xsaitekpanels/radiopanel/count", "writable")
-        dataref("MultiPanelCount", "bgood/xsaitekpanels/multipanel/count", "writable")
-
-        if SwitchPanelCount > 0 then
-            SwitchPanel = true
-        end
-        if RadioPanelCount > 0 then
-            RadioPanel = true
-        end
-        if MultiPanelCount > 0 then
-            MultiPanel = true
-        end
-
-        if SwitchPanel == false and RadioPanel == false and MultiPanel == false then
-            return
-        end
         PanelsReady = true
-        logMsg("FlyWithLua Info: ** Starting Zibo " .. PLANE_ICAO .. " version " .. Script_Version .. " for multi and switch panel")
-
-        dataref("FN_BUTTON", "bgood/xsaitekpanels/fnbutton/status", "readonly")
+        logMsg ("FlyWithLua Info: ** Running FlyWithLua script for the Zibo, LevelUp and Max Team Design B73x, ICAO="..PLANE_ICAO..", Script version="..Script_Version.." (©) by Geoff Lohrere. Xsaitekpanels plugin version="..XsaitekVersion..". Found ("..SwitchPanelCount..") Switch, ("..MultiPanelCount..") Multi and ("..RadioPanelCount..") Radio panel.")
 
         if SwitchPanel then
             dataref("SWITCH_STARTOFF", "bgood/xsaitekpanels/switchpanel/startoff/status", "writable")
@@ -119,6 +101,15 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
             dataref("Flood_Brightness12", "laminar/B738/electric/generic_brightness", "writable", 12)
             dataref("ADIRUSwitchL", "laminar/B738/toggle_switch/irs_left", "readonly")
             dataref("ADIRUSwitchR", "laminar/B738/toggle_switch/irs_right", "readonly")
+        end
+
+        if RadioPanel then
+            dataref("ACTSTBY_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1upractstby/status", "readonly")
+            dataref("XPDR_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1uprxpdr/status", "readonly")
+            dataref("XPDR_CRS_INC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfineincticks/status", "readonly")
+            dataref("XPDR_CRS_DEC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfinedecticks/status", "readonly")
+            XPDR_Delay = SIM_TIME + 0.25
+            CAP_FO_QNH = true
         end
 
         if MultiPanel then
@@ -458,24 +449,14 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- Taxi
     function Cmd_SP_Taxi_On()
-        if PLANE_ICAO == "B737" or "B739" then
-            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
-            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_dn")
-        else
-            command_once("laminar/B738/toggle_switch/taxi_light_brightness_on")
-        end
+        command_once("laminar/B738/toggle_switch/taxi_light_brightness_on")
         command_once("laminar/B738/switch/rwy_light_left_on")
         command_once("laminar/B738/switch/rwy_light_right_on")
     end
     create_command("FlyWithLua/B738/Cmd_SP_Taxi_On", "Cmd_SP_Taxi_On", "Cmd_SP_Taxi_On()", "", "")
 
     function Cmd_SP_Taxi_Off()
-        if PLANE_ICAO == "B737" or "B739" then
-            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
-            command_once("laminar/B738/toggle_switch/taxi_light_brightness_pos_up")
-        else
-            command_once("laminar/B738/toggle_switch/taxi_light_brightness_off")
-        end
+        command_once("laminar/B738/toggle_switch/taxi_light_brightness_off")
         command_once("laminar/B738/switch/rwy_light_left_off")
         command_once("laminar/B738/switch/rwy_light_right_off")
     end
@@ -485,21 +466,12 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
 
     -- Landing
     function Cmd_SP_Landing_On()
-        if PLANE_ICAO == "B737" then
-            command_once("laminar/B738/spring_switch/landing_lights_all")
-        else
-            command_once("sim/lights/landing_lights_on")
-        end
+        command_once("sim/lights/landing_lights_on")
     end
     create_command("FlyWithLua/B738/Cmd_SP_Landing_On", "Cmd_SP_Landing_On", "Cmd_SP_Landing_On()", "", "")
 
     function Cmd_SP_Landing_Off()
-        if PLANE_ICAO == "B737" then
-            set("laminar/B738/switch/land_lights_left_pos", 0)
-            set("laminar/B738/switch/land_lights_right_pos", 0)
-        else
-            command_once("sim/lights/landing_lights_off")
-        end
+        command_once("sim/lights/landing_lights_off")
     end
     create_command("FlyWithLua/B738/Cmd_SP_Landing_Off", "Cmd_SP_Landing_Off", "Cmd_SP_Landing_Off()", "", "")
 
@@ -794,6 +766,37 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
     -- --------------------------------------------------------------------------------
 
     function RefreshLights()
+
+        if RadioPanel then
+            if XPDR_STATUS_UP == 1 then
+                if XPDR_CRS_INC_UP == 1 then
+                    if CAP_FO_QNH == true then
+                        command_once("laminar/B738/EFIS_control/capt/baro_in_hpa_up")
+                    else
+                        command_once("laminar/B738/EFIS_control/fo/baro_in_hpa_up")
+                    end
+                end
+                if XPDR_CRS_DEC_UP == 1 then
+                    if CAP_FO_QNH == true then
+                        command_once("laminar/B738/EFIS_control/capt/baro_in_hpa_dn")
+                    else
+                        command_once("laminar/B738/EFIS_control/fo/baro_in_hpa_dn")
+                    end
+                end
+                if ACTSTBY_STATUS_UP == 1 then
+                    if XPDR_Delay < SIM_TIME then
+                        XPDR_Delay = SIM_TIME + 0.25
+                        CAP_FO_QNH = not CAP_FO_QNH
+                        if CAP_FO_QNH == true then
+                            XPLMSpeakString("Captain.")
+                        else
+                            XPLMSpeakString("First Officer.")
+                        end
+                    end
+                end
+            end
+        end
+
         if MultiPanel then
             -- Master Caution
             if MULTI_MASTER_CAUTION == 1 then
@@ -866,31 +869,33 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
         return value == true and "Yes" or value == false and "No"
     end
     local function status_message()
-        local boxWidth = 323;
-        local boxHeight = 163;
+        local boxWidth = 325;
+        local boxHeight = 193;
         local ypos = 30
         local xpos = 30
         graphics.set_color(0.0, 0.0, 0.8, 0.4);
-        graphics.draw_rectangle(xpos, ypos, xpos + boxWidth, ypos + boxHeight)
+        graphics.draw_rectangle(xpos, ypos, xpos+boxWidth, ypos+boxHeight)
         graphics.set_color(1.0, 1.0, 1.0, 1.0);
-        draw_string_Helvetica_18(xpos + 10, ypos + boxHeight - 25, Script_Title .. " ver. " .. Script_Version)
+        draw_string_Helvetica_18(xpos + 10, ypos + boxHeight - 25, Script_Title.." ver. "..Script_Version)
         graphics.set_color(0.0, 1.0, 0.0, 1.0);
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 41, "Message expires in: " .. Msg_Timer .. " seconds or press space.")
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 41, "Message expires in: "..Msg_Timer.." seconds or press space.")
         graphics.set_color(1.0, 1.0, 0.0, 1.0);
-        draw_string_Helvetica_10(xpos + 10, ypos + boxHeight - 57, "NOTE: XPlane Plugin1.2.6.0 conflicts with xsaitek scripts so it")
-        draw_string_Helvetica_10(xpos + 10, ypos + boxHeight - 72, "will be disabled if it exists, but will be reenabled on exit.")
+        draw_string_Helvetica_10(xpos + 10, ypos + boxHeight - 57, "NOTE: The Logitech XPlane Plugin 1.2.6.0 is not required with")
+        draw_string_Helvetica_10(xpos + 10, ypos + boxHeight - 72, "Xsaitekpanels so will be disabled if it exists, but reenabled on exit.")
         graphics.set_color(1.0, 1.0, 1.0, 1.0);
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 89, "Plane ICAO: " .. PLANE_ICAO)
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 104, "Switch Panel: " .. YesNo_String(SwitchPanel))
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 119, "Multi Panel: " .. YesNo_String(MultiPanel))
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 134, "Radio Panel: " .. YesNo_String(RadioPanel))
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 149, "XPlane Plugin: " .. XPlanePluginID .. "")
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 89, "Plane ICAO : "..PLANE_ICAO)
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 104, "Switch Panel : "..YesNo_String(SwitchPanel))
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 119, "Multi Panel : "..YesNo_String(MultiPanel))
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 134, "Radio Panel : "..YesNo_String(RadioPanel))
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 149, "Logitech XPlane Plugin : "..XPlanePluginID.."")
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 164, "Xsaitekpanels plugin version : "..XsaitekVersion.."")
+        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 179, "Xplane internal version : "..XplaneVersion.."")
     end
 
     function draw_loop()
         key_pressed()
         if End_Time < os.time() then
-            Msg_Timer = Msg_Timer - 1
+            Msg_Timer = Msg_Timer -1
             End_Time = os.time()
         end
         if Msg_Timer > 0 then
@@ -915,11 +920,11 @@ if (PLANE_ICAO == "B737" or PLANE_ICAO == "B738" or PLANE_ICAO == "B739") and (X
         -- find plugin ID based on Signature
         local sig_return = XPLM.XPLMFindPluginBySignature(plugin_Signature)
         if (sig_return > 0) then
-            logMsg("FlyWithLua Info: ** Plugin '" .. plugin_Signature .. "' found via Signature, ID = " .. sig_return .. ": Renabling Saitek plugin")
+            logMsg("FlyWithLua Info: ** Aircraft closed. Exiting "..Script_Title..". Logitech '"..plugin_Signature.."' found via Signature, ID = "..sig_return..": Reenabling Logitech Saitek plugin.")
             -- disable plugin by ID
             XPLM.XPLMEnablePlugin(sig_return)
         else
-            logMsg("FlyWithLua Info: ** Plugin '" .. plugin_Signature .. "' not found via Signature. Saitek plugin was not loaded so nothing to renable")
+            logMsg("FlyWithLua Info: ** Aircraft closed. Exiting "..Script_Title..". Logitech '"..plugin_Signature.."' not found via Signature. Logitech Saitek plugin is not installed so nothing to reenable.")
         end
     end
 end
