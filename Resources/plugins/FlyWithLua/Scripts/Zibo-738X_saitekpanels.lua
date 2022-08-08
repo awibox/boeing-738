@@ -1,139 +1,66 @@
-if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
-
-    -- --------------------------------------------------------------------------------
-    -- SAITEK PANELS for Zibo Boeing 737-800, 700U and 900U by Geoff Lohrere
-    -- --------------------------------------------------------------------------------
-
-    -- Global Variables
-    Script_Title = "Saitek script for Zibo " .. PLANE_ICAO .. ""
-    Script_Version = "2.0.8"
-    End_Time = os.time()
-    Msg_Timer = 10
+if PLANE_ICAO == "B738" and (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
     PanelsReady = false
-    SwitchPanel = true
-    RadioPanel = true
-    MultiPanel = true
-    local plugin_Signature = "XPlane Plugin.1.2.6.0"
-    dataref("XplaneVersion", "sim/version/xplane_internal_version", "readonly")
-    dataref("XsaitekVersion", "bgood/xsaitekpanels/version", "readonly")
     dataref("SIM_TIME", "sim/time/total_running_time_sec", "readonly")
-
-    -- --------------------------------------------------------------------------------
-    -- disable conflicting saitek plugin by signature and ID
-    -- --------------------------------------------------------------------------------
-
-    -- make sure the script does not stop old FlyWithLua versions
-    if not SUPPORTS_FLOATING_WINDOWS then
-        logMsg("imgui not supported by your FlyWithLua version")
-        return
-    end
-
-    -- load the XPLM library
-    local ffi = require("ffi")
-
-    -- find the right lib to load
-    local XPLMlib = "XPLM_64"
-
-    -- load the lib and store in local variable
-    local XPLM = ffi.load(XPLMlib)
-
-    -- define XPLM functions
-    ffi.cdef [[
-	typedef int XPLMPluginID;
-	int XPLMFindPluginBySignature(
-		const char *inSignature);
-	void XPLMDisablePlugin(
-		XPLMPluginID inPluginID);
-	int XPLMEnablePlugin(
-		XPLMPluginID inPluginID);
-	]]
-
-    -- find plugin ID based on Signature
-    local sig_return = XPLM.XPLMFindPluginBySignature(plugin_Signature)
-    if (sig_return > 0) then
-        logMsg("FlyWithLua Info: ** Logitech '"..plugin_Signature.."' found via Signature, ID = "..sig_return..". Disabling::It conflicts with the Xsaitekpanels plugin used for the "..Script_Title..".")
-        XPLM.XPLMDisablePlugin(sig_return)
-        XPlanePluginID = "Yes (Disabled : id="..sig_return..")"
-        PluginStatus = 0
-    else
-        logMsg("FlyWithLua Info: ** Logitech '"..plugin_Signature.."' not found via Signature. Logitech Saitek plugin not installed so nothing to disable.")
-        XPlanePluginID = "No (Nothing to disable)"
-    end
 
     function Init_Loop()
         if PanelsReady == true then
             return
         end
         PanelsReady = true
-        logMsg ("FlyWithLua Info: ** Running FlyWithLua script for the Zibo, LevelUp and Max Team Design B73x, ICAO="..PLANE_ICAO..", Script version="..Script_Version.." (©) by Geoff Lohrere. Xsaitekpanels plugin version="..XsaitekVersion..". Found ("..SwitchPanelCount..") Switch, ("..MultiPanelCount..") Multi and ("..RadioPanelCount..") Radio panel.")
+        dataref("SWITCH_STARTOFF", "bgood/xsaitekpanels/switchpanel/startoff/status", "writable")
+        dataref("SWITCH_STARTRIGHT", "bgood/xsaitekpanels/switchpanel/startright/status", "writable")
+        dataref("SWITCH_STARTLEFT", "bgood/xsaitekpanels/switchpanel/startleft/status", "writable")
+        dataref("SWITCH_STARTBOTH", "bgood/xsaitekpanels/switchpanel/startboth/status", "writable")
+        dataref("SWITCH_STARTSTART", "bgood/xsaitekpanels/switchpanel/startstart/status", "writable")
+        dataref("SWITCH_BAT", "bgood/xsaitekpanels/switchpanel/bat/status", "writable")
+        dataref("SWITCH_ALT", "bgood/xsaitekpanels/switchpanel/alt/status", "writable")
+        dataref("SWITCH_AVIONICS", "bgood/xsaitekpanels/switchpanel/av/status", "writable")
+        dataref("SWITCH_FUEL_PUMP", "bgood/xsaitekpanels/switchpanel/fuel/status", "writable")
+        dataref("SWITCH_DEICE", "bgood/xsaitekpanels/switchpanel/dice/status", "writable")
+        dataref("SWITCH_PITOT", "bgood/xsaitekpanels/switchpanel/pitot/status", "writable")
+        dataref("SWITCH_COWL", "bgood/xsaitekpanels/switchpanel/cowl/status", "writable")
+        dataref("SWITCH_PANEL", "bgood/xsaitekpanels/switchpanel/panel/status", "writable")
+        dataref("SWITCH_BEACON", "bgood/xsaitekpanels/switchpanel/beacon/status", "writable")
+        dataref("SWITCH_STROBE", "bgood/xsaitekpanels/switchpanel/strobe/status", "writable")
+        dataref("SWITCH_TAXI", "bgood/xsaitekpanels/switchpanel/taxi/status", "writable")
+        dataref("SWITCH_LANDING", "bgood/xsaitekpanels/switchpanel/landing/status", "writable")
+        dataref("SWITCH_HYDRO_EL1", "laminar/B738/toggle_switch/electric_hydro_pumps1_pos", "writable")
+        dataref("SWITCH_HYDRO_EL2", "laminar/B738/toggle_switch/electric_hydro_pumps2_pos", "writable")
+        dataref("Battery_Cover", "laminar/B738/button_switch/cover_position", "readonly", 2)
+        dataref("Battery_Position", "laminar/B738/electric/battery_pos", "writable")
+        dataref("Panel_Brightness0", "laminar/B738/electric/panel_brightness", "writable", 0)
+        dataref("Panel_Brightness1", "laminar/B738/electric/panel_brightness", "writable", 1)
+        dataref("Panel_Brightness2", "laminar/B738/electric/panel_brightness", "writable", 2)
+        dataref("Panel_Brightness3", "laminar/B738/electric/panel_brightness", "writable", 3)
+        dataref("Flood_Brightness6", "laminar/B738/electric/generic_brightness", "writable", 6)
+        dataref("Flood_Brightness7", "laminar/B738/electric/generic_brightness", "writable", 7)
+        dataref("Flood_Brightness8", "laminar/B738/electric/generic_brightness", "writable", 8)
+        dataref("Flood_Brightness10", "laminar/B738/electric/generic_brightness", "writable", 10)
+        dataref("Flood_Brightness11", "laminar/B738/electric/generic_brightness", "writable", 11)
+        dataref("Flood_Brightness12", "laminar/B738/electric/generic_brightness", "writable", 12)
+        dataref("ADIRUSwitchL", "laminar/B738/toggle_switch/irs_left", "readonly")
+        dataref("ADIRUSwitchR", "laminar/B738/toggle_switch/irs_right", "readonly")
 
-        if SwitchPanel then
-            dataref("SWITCH_STARTOFF", "bgood/xsaitekpanels/switchpanel/startoff/status", "writable")
-            dataref("SWITCH_STARTRIGHT", "bgood/xsaitekpanels/switchpanel/startright/status", "writable")
-            dataref("SWITCH_STARTLEFT", "bgood/xsaitekpanels/switchpanel/startleft/status", "writable")
-            dataref("SWITCH_STARTBOTH", "bgood/xsaitekpanels/switchpanel/startboth/status", "writable")
-            dataref("SWITCH_STARTSTART", "bgood/xsaitekpanels/switchpanel/startstart/status", "writable")
-            dataref("SWITCH_BAT", "bgood/xsaitekpanels/switchpanel/bat/status", "writable")
-            dataref("SWITCH_ALT", "bgood/xsaitekpanels/switchpanel/alt/status", "writable")
-            dataref("SWITCH_AVIONICS", "bgood/xsaitekpanels/switchpanel/av/status", "writable")
-            dataref("SWITCH_FUEL_PUMP", "bgood/xsaitekpanels/switchpanel/fuel/status", "writable")
-            dataref("SWITCH_DEICE", "bgood/xsaitekpanels/switchpanel/dice/status", "writable")
-            dataref("SWITCH_PITOT", "bgood/xsaitekpanels/switchpanel/pitot/status", "writable")
-            dataref("SWITCH_COWL", "bgood/xsaitekpanels/switchpanel/cowl/status", "writable")
-            dataref("SWITCH_PANEL", "bgood/xsaitekpanels/switchpanel/panel/status", "writable")
-            dataref("SWITCH_BEACON", "bgood/xsaitekpanels/switchpanel/beacon/status", "writable")
-            dataref("SWITCH_STROBE", "bgood/xsaitekpanels/switchpanel/strobe/status", "writable")
-            dataref("SWITCH_TAXI", "bgood/xsaitekpanels/switchpanel/taxi/status", "writable")
-            dataref("SWITCH_LANDING", "bgood/xsaitekpanels/switchpanel/landing/status", "writable")
-            dataref("SWITCH_HYDRO_EL1", "laminar/B738/toggle_switch/electric_hydro_pumps1_pos", "writable")
-            dataref("SWITCH_HYDRO_EL2", "laminar/B738/toggle_switch/electric_hydro_pumps2_pos", "writable")
-            dataref("Battery_Cover", "laminar/B738/button_switch/cover_position", "readonly", 2)
-            dataref("Battery_Position", "laminar/B738/electric/battery_pos", "writable")
-            dataref("Panel_Brightness0", "laminar/B738/electric/panel_brightness", "writable", 0)
-            dataref("Panel_Brightness1", "laminar/B738/electric/panel_brightness", "writable", 1)
-            dataref("Panel_Brightness2", "laminar/B738/electric/panel_brightness", "writable", 2)
-            dataref("Panel_Brightness3", "laminar/B738/electric/panel_brightness", "writable", 3)
-            dataref("Flood_Brightness6", "laminar/B738/electric/generic_brightness", "writable", 6)
-            dataref("Flood_Brightness7", "laminar/B738/electric/generic_brightness", "writable", 7)
-            dataref("Flood_Brightness8", "laminar/B738/electric/generic_brightness", "writable", 8)
-            dataref("Flood_Brightness10", "laminar/B738/electric/generic_brightness", "writable", 10)
-            dataref("Flood_Brightness11", "laminar/B738/electric/generic_brightness", "writable", 11)
-            dataref("Flood_Brightness12", "laminar/B738/electric/generic_brightness", "writable", 12)
-            dataref("ADIRUSwitchL", "laminar/B738/toggle_switch/irs_left", "readonly")
-            dataref("ADIRUSwitchR", "laminar/B738/toggle_switch/irs_right", "readonly")
-        end
+        dataref("Status_Integer1", "bgood/xsaitekpanels/sharedata/integer1", "writable")
+        dataref("Status_Integer2", "bgood/xsaitekpanels/sharedata/integer2", "writable")
+        dataref("Status_Integer3", "bgood/xsaitekpanels/sharedata/integer3", "writable")
+        dataref("Status_Integer4", "bgood/xsaitekpanels/sharedata/integer4", "writable")
+        dataref("Status_Integer5", "bgood/xsaitekpanels/sharedata/integer5", "writable")
+        dataref("Status_Integer6", "bgood/xsaitekpanels/sharedata/integer6", "writable")
+        dataref("Status_Integer7", "bgood/xsaitekpanels/sharedata/integer7", "writable")
+        dataref("Status_Integer8", "bgood/xsaitekpanels/sharedata/integer8", "writable")
+        dataref("MULTI_AT_SWITCH", "bgood/xsaitekpanels/multipanel/at/status", "readonly")
+        dataref("MULTI_POS_LIGHT", "laminar/B738/toggle_switch/position_light_pos", "readonly")
+        dataref("MULTI_GEAR", "sim/cockpit2/controls/gear_handle_down", "readonly")
+        dataref("MULTI_GEAR_SAFE", "sim/flightmodel2/gear/deploy_ratio", "readonly")
+        dataref("MULTI_AUTOBRAKE", "laminar/B738/autobrake/autobrake_pos2", "readonly")
+        dataref("MULTI_CABIN_ALT", "laminar/B738/annunciator/cabin_alt", "readonly")
+        dataref("MULTI_FIRE_1", "laminar/B738/annunciator/engine1_fire", "readonly")
+        dataref("MULTI_FIRE_2", "laminar/B738/annunciator/engine2_fire", "readonly")
+        dataref("MULTI_MASTER_CAUTION", "laminar/B738/annunciator/master_caution_light", "readonly")
+        dataref("MULTI_LOWERDU_SYS", "laminar/B738/systems/lowerDU_page2", "readonly")
+        dataref("MULTI_YAW", "laminar/B738/annunciator/yaw_damp", "readonly")
 
-        if RadioPanel then
-            dataref("ACTSTBY_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1upractstby/status", "readonly")
-            dataref("XPDR_STATUS_UP", "bgood/xsaitekpanels/radiopanel/rad1uprxpdr/status", "readonly")
-            dataref("XPDR_CRS_INC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfineincticks/status", "readonly")
-            dataref("XPDR_CRS_DEC_UP", "bgood/xsaitekpanels/radiopanel/rad1uprfinedecticks/status", "readonly")
-            XPDR_Delay = SIM_TIME + 0.25
-            CAP_FO_QNH = true
-        end
-
-        if MultiPanel then
-            -- Integers for MP button lights, 1-AP 2-HDG 3-NAV 4-IAS 5-ALT 6-VS 7-APR 8-REV
-            dataref("Status_Integer1", "bgood/xsaitekpanels/sharedata/integer1", "writable")
-            dataref("Status_Integer2", "bgood/xsaitekpanels/sharedata/integer2", "writable")
-            dataref("Status_Integer3", "bgood/xsaitekpanels/sharedata/integer3", "writable")
-            dataref("Status_Integer4", "bgood/xsaitekpanels/sharedata/integer4", "writable")
-            dataref("Status_Integer5", "bgood/xsaitekpanels/sharedata/integer5", "writable")
-            dataref("Status_Integer6", "bgood/xsaitekpanels/sharedata/integer6", "writable")
-            dataref("Status_Integer7", "bgood/xsaitekpanels/sharedata/integer7", "writable")
-            dataref("Status_Integer8", "bgood/xsaitekpanels/sharedata/integer8", "writable")
-            dataref("MULTI_AT_SWITCH", "bgood/xsaitekpanels/multipanel/at/status", "readonly")
-            dataref("MULTI_POS_LIGHT", "laminar/B738/toggle_switch/position_light_pos", "readonly")
-            dataref("MULTI_GEAR", "sim/cockpit2/controls/gear_handle_down", "readonly")
-            dataref("MULTI_GEAR_SAFE", "sim/flightmodel2/gear/deploy_ratio", "readonly")
-            dataref("MULTI_AUTOBRAKE", "laminar/B738/autobrake/autobrake_pos2", "readonly")
-            dataref("MULTI_CABIN_ALT", "laminar/B738/annunciator/cabin_alt", "readonly")
-            dataref("MULTI_FIRE_1", "laminar/B738/annunciator/engine1_fire", "readonly")
-            dataref("MULTI_FIRE_2", "laminar/B738/annunciator/engine2_fire", "readonly")
-            dataref("MULTI_MASTER_CAUTION", "laminar/B738/annunciator/master_caution_light", "readonly")
-            dataref("MULTI_LOWERDU_SYS", "laminar/B738/systems/lowerDU_page2", "readonly")
-            dataref("MULTI_YAW", "laminar/B738/annunciator/yaw_damp", "readonly")
-        end
         command_once("jd/copilot/widget")
     end
     do_often("Init_Loop()")
@@ -766,37 +693,6 @@ if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
     -- --------------------------------------------------------------------------------
 
     function RefreshLights()
-
-        if RadioPanel then
-            if XPDR_STATUS_UP == 1 then
-                if XPDR_CRS_INC_UP == 1 then
-                    if CAP_FO_QNH == true then
-                        command_once("laminar/B738/EFIS_control/capt/baro_in_hpa_up")
-                    else
-                        command_once("laminar/B738/EFIS_control/fo/baro_in_hpa_up")
-                    end
-                end
-                if XPDR_CRS_DEC_UP == 1 then
-                    if CAP_FO_QNH == true then
-                        command_once("laminar/B738/EFIS_control/capt/baro_in_hpa_dn")
-                    else
-                        command_once("laminar/B738/EFIS_control/fo/baro_in_hpa_dn")
-                    end
-                end
-                if ACTSTBY_STATUS_UP == 1 then
-                    if XPDR_Delay < SIM_TIME then
-                        XPDR_Delay = SIM_TIME + 0.25
-                        CAP_FO_QNH = not CAP_FO_QNH
-                        if CAP_FO_QNH == true then
-                            XPLMSpeakString("Captain.")
-                        else
-                            XPLMSpeakString("First Officer.")
-                        end
-                    end
-                end
-            end
-        end
-
         if MultiPanel then
             -- Master Caution
             if MULTI_MASTER_CAUTION == 1 then
@@ -860,71 +756,4 @@ if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
         end
     end
     do_every_frame("RefreshLights()")
-
-    -- --------------------------------------------------------------------------------
-    -- TIMED MESSAGE WITH ANY KEY EXIT
-    -- --------------------------------------------------------------------------------
-
-    local function YesNo_String(value)
-        return value == true and "Yes" or value == false and "No"
-    end
-    local function status_message()
-        local boxWidth = 325;
-        local boxHeight = 193;
-        local ypos = 30
-        local xpos = 30
-        graphics.set_color(0.0, 0.0, 0.8, 0.4);
-        graphics.draw_rectangle(xpos, ypos, xpos+boxWidth, ypos+boxHeight)
-        graphics.set_color(1.0, 1.0, 1.0, 1.0);
-        draw_string_Helvetica_18(xpos + 10, ypos + boxHeight - 25, Script_Title.." ver. "..Script_Version)
-        graphics.set_color(0.0, 1.0, 0.0, 1.0);
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 41, "Message expires in: "..Msg_Timer.." seconds or press space.")
-        graphics.set_color(1.0, 1.0, 0.0, 1.0);
-        draw_string_Helvetica_10(xpos + 10, ypos + boxHeight - 57, "NOTE: The Logitech XPlane Plugin 1.2.6.0 is not required with")
-        draw_string_Helvetica_10(xpos + 10, ypos + boxHeight - 72, "Xsaitekpanels so will be disabled if it exists, but reenabled on exit.")
-        graphics.set_color(1.0, 1.0, 1.0, 1.0);
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 89, "Plane ICAO : "..PLANE_ICAO)
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 104, "Switch Panel : "..YesNo_String(SwitchPanel))
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 119, "Multi Panel : "..YesNo_String(MultiPanel))
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 134, "Radio Panel : "..YesNo_String(RadioPanel))
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 149, "Logitech XPlane Plugin : "..XPlanePluginID.."")
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 164, "Xsaitekpanels plugin version : "..XsaitekVersion.."")
-        draw_string_Helvetica_12(xpos + 10, ypos + boxHeight - 179, "Xplane internal version : "..XplaneVersion.."")
-    end
-
-    function draw_loop()
-        key_pressed()
-        if End_Time < os.time() then
-            Msg_Timer = Msg_Timer -1
-            End_Time = os.time()
-        end
-        if Msg_Timer > 0 then
-            status_message()
-        end
-    end
-    do_every_draw("draw_loop()")
-
-    function key_pressed()
-        if KEY_ACTION == "pressed" then
-            Msg_Timer = 0
-        end
-    end
-    do_on_keystroke("key_pressed()")
-
-    -- --------------------------------------------------------------------------------
-    -- on exit re-enable conflicting saitek plugin by signature and ID
-    -- --------------------------------------------------------------------------------
-
-    do_on_exit("Enable_Plugin()")
-    function Enable_Plugin()
-        -- find plugin ID based on Signature
-        local sig_return = XPLM.XPLMFindPluginBySignature(plugin_Signature)
-        if (sig_return > 0) then
-            logMsg("FlyWithLua Info: ** Aircraft closed. Exiting "..Script_Title..". Logitech '"..plugin_Signature.."' found via Signature, ID = "..sig_return..": Reenabling Logitech Saitek plugin.")
-            -- disable plugin by ID
-            XPLM.XPLMEnablePlugin(sig_return)
-        else
-            logMsg("FlyWithLua Info: ** Aircraft closed. Exiting "..Script_Title..". Logitech '"..plugin_Signature.."' not found via Signature. Logitech Saitek plugin is not installed so nothing to reenable.")
-        end
-    end
 end
