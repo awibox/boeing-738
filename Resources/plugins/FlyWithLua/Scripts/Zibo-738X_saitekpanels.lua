@@ -17,6 +17,7 @@ if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
     dataref("XplaneVersion", "sim/version/xplane_internal_version", "readonly")
     dataref("XsaitekVersion", "bgood/xsaitekpanels/version", "readonly")
     dataref("SIM_TIME", "sim/time/total_running_time_sec", "readonly")
+    dataref("ATIS", "sim/atc/atis_enabled", "writable")
 
     -- --------------------------------------------------------------------------------
     -- disable conflicting saitek plugin by signature and ID
@@ -61,11 +62,12 @@ if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
     end
 
     function Init_Loop()
+        ATIS = 0
         if PanelsReady == true then
             return
         end
         PanelsReady = true
-        logMsg ("FlyWithLua Info: ** Running FlyWithLua script for the Zibo, LevelUp and Max Team Design B73x, ICAO="..PLANE_ICAO..", Script version="..Script_Version.." (©) by Geoff Lohrere. Xsaitekpanels plugin version="..XsaitekVersion..". Found ("..SwitchPanelCount..") Switch, ("..MultiPanelCount..") Multi and ("..RadioPanelCount..") Radio panel.")
+        logMsg ("FlyWithLua Info: ** Running FlyWithLua script for the Zibo, LevelUp and Max Team Design B73x, ICAO="..PLANE_ICAO..", Script version="..Script_Version.." (©) by Geoff Lohrere. Xsaitekpanels plugin version="..XsaitekVersion..".")
 
         if SwitchPanel then
             dataref("SWITCH_STARTOFF", "bgood/xsaitekpanels/switchpanel/startoff/status", "writable")
@@ -231,7 +233,7 @@ if (XPLMFindDataRef("laminar/B738/engine/indicators/N2_percent_1")) then
 
     -- Alt
     function Cmd_SP_HydroEl_On()
-        SWITCH_HYDRO_El1 = 1
+        SWITCH_HYDRO_EL1 = 1
         SWITCH_HYDRO_EL2 = 1
     end
     create_command("FlyWithLua/B738/Cmd_SP_HydroEl_On", "Cmd_SP_HydroEl_On", "Cmd_SP_HydroEl_On()", "", "")
